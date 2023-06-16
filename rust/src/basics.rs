@@ -1,8 +1,3 @@
-// ignore some warnings for this file
-#![allow(unreachable_code)]
-#![allow(unused_variables)]
-#![allow(unused_assignments)]
-
 /** examples for basic syntax and concepts */
 // "pub" is needed to make this function public, meaning accessible by other files when importing as a module
 pub fn run_examples() {
