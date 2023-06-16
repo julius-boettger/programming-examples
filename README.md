@@ -1,0 +1,3 @@
+# Programming Examples
+
+This repository contains multiple programming projects, each showcasing the basic use of a programming language. This includes use of keywords, data types, control structures, variables, operators, object oriented or functional programming, ...
