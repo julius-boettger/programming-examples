@@ -18,5 +18,5 @@ fn main() {
         all of these functions will be executed below.
     */
 
-    basics::run_basics();
+    basics::run_examples();
 }
