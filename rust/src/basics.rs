@@ -14,19 +14,31 @@ pub fn run_examples() {
     let _ = 42;
 
     //// variables
-    // declare a variable and assign a value to it afterwards:
     let first_variable;
     first_variable = 12;
     // variables are immutable by default, meaning they cannot be reassigned.
-    // to declare and assign a mutable (reassignable) variable in a single line:
+    // the following variable is mutable (reassignable):
     let mut second_variable = 13;
     second_variable = 14; // allowed! (mutable)
     // these variables have inferred types as I did not specify one.
     // types can also be annotated manually, like i32 (signed 32-bit integer, usually the go-to)
     let integer_variable: i32 = 0;
 
-    //// tuples
-    // a tuple is a fixed-length collection of values of different types
+    //// primitive data types
+    let data_types: (
+        // signed integers (can be negative)
+        i8, i16, i32, i64, isize, // isize depends on architecture, e.g. 32b => 32b
+        // unsigned integers (cannot be negative)
+        u8, u16, u32, u64, usize, // usize depends on architecture, e.g. 32b => 32b
+        // signed floating points
+        f32, f64,
+        bool, // boolean, true or false
+        char, // char, 'A'
+        (), // "unit" type (empty tuple)
+    );
+
+    //// compound data type: tuple
+    // fixed-length collection of values of different types
     // as always: types can be annotated manually, but don't have to be
     let rgb_tuple: (u8, u8, u8) = (0, 255, 0);
     // values of a tuple can be extracted like this:
@@ -34,32 +46,43 @@ pub fn run_examples() {
     // ...or by their index, like this:
     let blue = rgb_tuple.2;
 
+    //// compound data type: string
+    // string slice: supposed to be immutable
+    let string_slice: &str = "this can never be changed";
+    // String object: supposed to be mutable
+    let mut string_object: String = String::from(string_slice);
+    string_object.push_str("... but this can!");
+
     //// functions
-    // this is a simple function to add two numbers
     fn sum(x: i32, y: i32) -> i32 {
         // the following two lines do the exact same thing!
-        return x + y; // familiar-looking syntax
+        return x + y;
         x + y // rust-syntax "tail", mind the missing ; at the end!
     }
     // call the function like this:
     let result = sum(2, 2);
     assert!(result == 4);
-    // return type is "void" if not specified, meaning it will return an empty tuple ()
-    fn nothing() {}
+    // return type is "void" if not specified, meaning it will return the unit type
+    // functions cannot access variables of higher scopes!
+    fn nothing() {
+        // the following line throws an error as blue is not accessible in this scope
+        //println!("{}", blue);
+    }
     assert!(nothing() == ());
 
     //// blocks
     // blocks are expressions, which means that they evaluate to a value!
     // they are also scopes (like in most other languages)
     {
-        // do something...
+        // variables of higher-up scopes are accessible:
+        //println!("{}", blue);
     };
-    // the default return type (if not speficied) is an empty tuple ()
+    // the default return type (if not speficied) is unit type
     let block = {};
     assert!(block == ());
 
     //// if, else if, else
-    // blocks are expressions + after "if" comes a block => if-blocks are expressions!
+    // blocks are expressions + after "if" comes a block => if-expressions!
 
     if true {
         "the boolean expression is true!";
@@ -88,7 +111,7 @@ pub fn run_examples() {
     }
     assert!(i == 10);
 
-    // while: the usual :)
+    // while
     while i > 0 {
         i -= 1;
     }
@@ -97,6 +120,5 @@ pub fn run_examples() {
     // for: only option is what other languages call "for-each":
     for j in 1..=3 {
         // j will be 1, 2, 3
-        // do something
     }
 }
