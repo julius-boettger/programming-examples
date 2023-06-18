@@ -3,6 +3,7 @@
 SETUP
 - get rust: https://www.rust-lang.org/learn/get-started
 - create new project: cargo new project-name
+- run project: cargo run
 
 */
 
