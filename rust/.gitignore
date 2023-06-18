@@ -1,10 +1,2 @@
-# Compiled binary files
 target/
-
-# Generated documentation
-doc/
-
-# Dependency directories
 Cargo.lock
-Cargo.toml.orig
-vendor/
