@@ -10,8 +10,11 @@ SETUP
 
 */
 
+// import code from other files
+import "basics.dart";
+
 // entry point of the program. the file containing this needs to be specified in pubspec.yaml
 void main() {
-    // print hello world to the console
-    print("Hello World!");
+    // run examples from other files
+    basicExamples();
 }
