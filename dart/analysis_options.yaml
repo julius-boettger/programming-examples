@@ -1,0 +1,6 @@
+# include recommended lints
+include: package:lints/recommended.yaml
+# ignore some warnings for this project
+analyzer:
+    errors:
+        unused_local_variable: ignore
