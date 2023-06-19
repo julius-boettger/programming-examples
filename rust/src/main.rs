@@ -9,6 +9,7 @@ SETUP
 
 // ignore some warnings for this file
 #![allow(dead_code)]
+#![allow(unused_macros)]
 #![allow(unreachable_code)]
 #![allow(unused_variables)]
 #![allow(unused_assignments)]
@@ -16,6 +17,7 @@ SETUP
 // import module by filename (code in other files)
 mod basics;
 mod enums_structs_modules;
+mod macros;
 
 // entry point of the program
 fn main() {
@@ -28,4 +30,5 @@ fn main() {
 
     basics::run_examples();
     enums_structs_modules::run_examples();
+    macros::run_examples();
 }
