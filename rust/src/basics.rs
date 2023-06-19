@@ -6,8 +6,8 @@ pub fn run_examples() {
     println!("hello... world?");
 
     //// asserts
-    // the program will panic if the expression is false
-    assert!(2 == 2);
+    // the program will panic if two expressions do not have the same value
+    assert_eq!(2, 2);
 
     //// the underscore _
     // assigning something to _ means to ignore the result and instantly throw it away
@@ -61,14 +61,14 @@ pub fn run_examples() {
     }
     // call the function like this:
     let result = sum(2, 2);
-    assert!(result == 4);
+    assert_eq!(result, 4);
     // return type is "void" if not specified, meaning it will return the unit type
     // functions cannot access variables of higher scopes!
     fn nothing() {
         // the following line throws an error as blue is not accessible in this scope
         //println!("{}", blue);
     }
-    assert!(nothing() == ());
+    assert_eq!(nothing(), ());
 
     //// blocks
     // blocks are expressions, which means that they evaluate to a value!
@@ -79,7 +79,7 @@ pub fn run_examples() {
     };
     // the default return type (if not speficied) is unit type
     let block = {};
-    assert!(block == ());
+    assert_eq!(block, ());
 
     //// if, else if, else
     // blocks are expressions + after "if" comes a block => if-expressions!
@@ -109,13 +109,13 @@ pub fn run_examples() {
             break;
         }
     }
-    assert!(i == 10);
+    assert_eq!(i, 10);
 
     // while
     while i > 0 {
         i -= 1;
     }
-    assert!(i == 0);
+    assert_eq!(i, 0);
 
     // for: only option is what other languages call "for-each":
     for j in 1..=3 {
