@@ -23,6 +23,15 @@ pub fn run_examples() {
     // these variables have inferred types as I did not specify one.
     // types can also be annotated manually, like i32 (signed 32-bit integer, usually the go-to)
     let integer_variable: i32 = 0;
+    // this variable contains a memory address (pointer)
+    let second_variable_pointer = &second_variable;
+    // this variable gets assigned the value of the address (dereferenced pointer)
+    // changing the value of this will not affect the original variable!
+    let second_variable_copy = *second_variable_pointer;
+    // mutable pointers (&mut) can be modified when dereferenced
+    let second_variable_mut_pointer = &mut second_variable;
+    *second_variable_mut_pointer += 1;
+    assert_eq!(second_variable, 15);
 
     //// primitive data types
     let data_types: (
@@ -54,21 +63,36 @@ pub fn run_examples() {
     string_object.push_str("... but this can!");
 
     //// functions
+    
+    // pass by value
     fn sum(x: i32, y: i32) -> i32 {
         // the following two lines do the exact same thing!
         return x + y;
         x + y // rust-syntax "tail", mind the missing ; at the end!
     }
+
     // call the function like this:
     let result = sum(2, 2);
     assert_eq!(result, 4);
+
     // return type is "void" if not specified, meaning it will return the unit type
     // functions cannot access variables of higher scopes!
     fn nothing() {
         // the following line throws an error as blue is not accessible in this scope
         //println!("{}", blue);
     }
+
     assert_eq!(nothing(), ());
+
+    // pass by reference: take (mutable if needed) pointer as argument
+    fn increment(x: &mut i32) -> () { 
+        // dereferece pointer and increment it
+        *x += 1;
+    }
+
+    let mut to_increment = 0;
+    increment(&mut to_increment);
+    assert_eq!(to_increment, 1);
 
     //// blocks
     // blocks are expressions, which means that they evaluate to a value!
