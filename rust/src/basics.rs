@@ -52,8 +52,23 @@ pub fn run_examples() {
         bool, // boolean, true or false
         char, // char, 'A'
         &str, // "string slice", "hello"
-        (), // "unit" type (empty tuple)
+        (), // "unit" type (only possible value is empty tuple)
     );
+
+    // integer values can be written in different numeral systems
+    let decimal = 10;
+    let hexadecimal = 0xA; // => 10
+    let octal = 0o12;      // => 10
+    let binary = 0b1010;   // => 10
+    // underscores can be inserted to improve readability
+    let big_number = 1_000_000_000;
+    // f64 can use scientific e notation
+    let small_number = 1e-10;
+    // literals can have a type as a suffix
+    let specific_number: f32 = 1f32; // same as 1.0
+
+    //// boolean operations: not, and, or
+    let logic = (!false && true) || false;
 
     //// compound data type: tuple
     // fixed-length collection of values of different types
