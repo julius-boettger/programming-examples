@@ -21,6 +21,8 @@ SETUP
 
 // import module by filename (code in other files)
 mod basics;
+
+mod enums;
 mod macros;
 mod structs;
 mod control;
@@ -36,6 +38,8 @@ fn main() {
     */
 
     basics::run_examples();
+
+    enums::run_examples();
     macros::run_examples();
     structs::run_examples();
     control::run_examples();
