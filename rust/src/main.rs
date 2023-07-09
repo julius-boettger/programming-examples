@@ -1,5 +1,10 @@
 /*
 
+ABOUT
+- i write these examples as i go through "rust by example" (https://doc.rust-lang.org/stable/rust-by-example/)
+- i occasionally skip sections to work through them later
+    - 1.2 Formatted print
+
 SETUP
 - get rust: https://www.rust-lang.org/learn/get-started
 - create new project: cargo new project-name
@@ -16,7 +21,7 @@ SETUP
 
 // import module by filename (code in other files)
 mod basics;
-mod enums_structs_modules;
+mod structs;
 mod macros;
 
 // entry point of the program
@@ -29,6 +34,6 @@ fn main() {
     */
 
     basics::run_examples();
-    enums_structs_modules::run_examples();
+    structs::run_examples();
     macros::run_examples();
 }
