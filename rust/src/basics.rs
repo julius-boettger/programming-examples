@@ -79,6 +79,23 @@ pub fn run_examples() {
     // ...or by their index, like this:
     let blue = rgb_tuple.2;
 
+    //// compound data type: array
+    // fixed-length collection of same type
+    let array = [1, 10, 100, 1000];
+    // type is combination of type and length
+    let typed_array: [bool; 1] = [true];
+    // initialize all elements with the value -1
+    let default_value_array: [i32; 10] = [-1; 10];
+    // element of index 
+    let first_element = array[0]; // => 1
+    // length of array
+    let length = array.len(); // => 3
+    // array slices are parts of an existing array
+    // syntax is: first index .. last index + 1 (!)
+    let array_slice: &[i32] = &array[1..length]; // index 0 until end
+    // if the two indices are the same the result is always an empty array slice
+    let empty_array = &array[0..0];
+
     //// compound data type: string
     // string slice: supposed to be immutable
     let string_slice: &str = "this can never be changed";
