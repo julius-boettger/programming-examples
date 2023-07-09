@@ -1,9 +1,17 @@
-/** examples for basic syntax and concepts */
+/// examples for basic syntax and concepts (this is a doc comment)
 // "pub" is needed to make this function public, meaning accessible by other files when importing as a module
 pub fn run_examples() {
-    //// hello world
+    //// comments
+    // normal comment
+    /* block comment */
+    //! this is a doc comment inside a function, can also be outside with "///"
+
+    //// hello world (and printing to console)
     // the "!" signifies a macro, meaning it will be expanded to a longer code snippet at compile time
+    // see the dedicated file macros.rs for more about macros
     println!("hello... world?");
+    // print! also exists
+    // eprint! and eprintln! are for errors
 
     //// asserts
     // the program will panic if two expressions do not have the same value
@@ -43,6 +51,7 @@ pub fn run_examples() {
         f32, f64,
         bool, // boolean, true or false
         char, // char, 'A'
+        &str, // "string slice", "hello"
         (), // "unit" type (empty tuple)
     );
 
