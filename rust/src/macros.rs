@@ -1,4 +1,4 @@
-/** examples for macros */
+/// examples for macros
 pub fn run_examples() {
 
     // macros look like functions with a bang ("!"),

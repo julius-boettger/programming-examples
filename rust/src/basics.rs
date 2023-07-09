@@ -103,38 +103,6 @@ pub fn run_examples() {
     let mut string_object: String = String::from(string_slice);
     string_object.push_str("... but this can!");
 
-    //// functions
-    
-    // pass by value
-    fn sum(x: i32, y: i32) -> i32 {
-        // the following two lines do the exact same thing!
-        return x + y;
-        x + y // rust-syntax "tail", mind the missing ; at the end!
-    }
-
-    // call the function like this:
-    let result = sum(2, 2);
-    assert_eq!(result, 4);
-
-    // return type is "void" if not specified, meaning it will return the unit type
-    // functions cannot access variables of higher scopes!
-    fn nothing() {
-        // the following line throws an error as blue is not accessible in this scope
-        //println!("{}", blue);
-    }
-
-    assert_eq!(nothing(), ());
-
-    // pass by reference: take (mutable if needed) pointer as argument
-    fn increment(x: &mut i32) -> () { 
-        // dereferece pointer and increment it
-        *x += 1;
-    }
-
-    let mut to_increment = 0;
-    increment(&mut to_increment);
-    assert_eq!(to_increment, 1);
-
     //// blocks
     // blocks are expressions, which means that they evaluate to a value!
     // they are also scopes (like in most other languages)
@@ -145,45 +113,4 @@ pub fn run_examples() {
     // the default return type (if not speficied) is unit type
     let block = {};
     assert_eq!(block, ());
-
-    //// if, else if, else
-    // blocks are expressions + after "if" comes a block => if-expressions!
-
-    if true {
-        "the boolean expression is true!";
-    } else if false {
-        "this will never be reached";
-    } else {
-        "and this is also unecessary";
-    }
-
-    let returned_by_if = if true {
-        "true"
-    } else {
-        "false"
-    };
-
-    //// loops
-    // loop: executes indefinitely until a break is reached
-    let mut i = 0;
-    loop {
-        i += 1;
-        if i < 10 {
-            continue; // this keyword exists!
-        } else {
-            break;
-        }
-    }
-    assert_eq!(i, 10);
-
-    // while
-    while i > 0 {
-        i -= 1;
-    }
-    assert_eq!(i, 0);
-
-    // for: only option is what other languages call "for-each":
-    for j in 1..=3 {
-        // j will be 1, 2, 3
-    }
 }

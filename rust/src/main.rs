@@ -21,8 +21,10 @@ SETUP
 
 // import module by filename (code in other files)
 mod basics;
-mod structs;
 mod macros;
+mod structs;
+mod control;
+mod functions;
 
 // entry point of the program
 fn main() {
@@ -34,6 +36,8 @@ fn main() {
     */
 
     basics::run_examples();
-    structs::run_examples();
     macros::run_examples();
+    structs::run_examples();
+    control::run_examples();
+    functions::run_examples();
 }
