@@ -10,6 +10,11 @@ pub fn run_examples() {
     // deconstruct
     let IntegerPair(first_int, _) = integer_pair;
     assert_eq!(first_int, integer_pair.0);
+    // can also be generic
+    struct GenericSamePair<T>(T, T);
+    let generic_same_pair = GenericSamePair(true, false);
+    struct GenericPair<A, B>(A, B);
+    let generic_pair = GenericPair(0, true);
 
     //// classic struct: has named fields
     struct Cat {
@@ -23,5 +28,10 @@ pub fn run_examples() {
     };
     // deconstruct
     let Cat { name: _, age: cat_age } = cat;
-    assert_eq!(cat_age, cat.age)
+    assert_eq!(cat_age, cat.age);
+
+    // can also be generic
+    struct Wrapper<T> { value: T }
+    let wrapper = Wrapper { value: "helo" };
+    assert_eq!(wrapper.value, "helo");
 }
