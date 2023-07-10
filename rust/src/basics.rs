@@ -36,6 +36,10 @@ pub fn run_examples() {
     let second_variable_mut_pointer = &mut second_variable;
     *second_variable_mut_pointer += 1;
     assert_eq!(second_variable, 15);
+    
+    //// constants
+    // need to have their type annotated explicitly
+    const DAYS_IN_A_YEAR: u16 = 365;
 
     //// the underscore _
     // assigning something to _ means to ignore the result and instantly throw it away
