@@ -17,14 +17,14 @@ pub fn run_examples() {
     // the program will panic if two expressions do not have the same value
     assert_eq!(2, 2);
 
-    //// variables
+    //// variables, (im)mutability, pointers
     let first_variable;
     first_variable = 12;
     // variables are immutable by default, meaning they cannot be reassigned.
     // the following variable is mutable (reassignable):
     let mut second_variable = 13;
     second_variable = 14; // allowed! (mutable)
-    // these variables have inferred types as I did not specify one.
+    // these variables have inferred types as i did not specify one.
     // types can also be annotated manually, like i32 (signed 32-bit integer, usually the go-to)
     let integer_variable: i32 = 0;
     // this variable contains a memory address (pointer)
@@ -44,6 +44,15 @@ pub fn run_examples() {
     //// the underscore _
     // assigning something to _ means to ignore the result and instantly throw it away
     let _ = 42;
+
+    //// boolean operations: not, and, or
+    // pretty familiar :)
+    let logic = (!false && true) || false;
+
+    //// type aliases
+    // new names for existing types!
+    type ColorValue = u8;
+    let grey_scale: ColorValue = 127;
 
     //// ranges and range notation
     // ranges are used in array slicing, for loops, ...
@@ -70,7 +79,7 @@ pub fn run_examples() {
         (), // "unit" type (only possible value is empty tuple)
     );
 
-    // integer values can be written in different numeral systems
+    //// number notations
     let decimal     =   10;
     let hexadecimal = 0xA;    // => 10
     let octal       = 0o12;   // => 10
@@ -79,11 +88,12 @@ pub fn run_examples() {
     let big_number = 1_000_000_000;
     // f64 can use scientific e notation
     let small_number = 1e-10;
-    // literals can have a type as a suffix
+    // literals can have a type as a suffix, which is generally a good practice
     let specific_number: f32 = 1f32; // same as 1.0
 
-    //// boolean operations: not, and, or
-    let logic = (!false && true) || false;
+    //// casting
+    // rust has no implicit type conversion. it can only be done explicitly:
+    let small_int: u8 = 1.2_f64 as u8;
 
     //// compound data type: tuple
     // fixed-length collection of values of different types
@@ -127,13 +137,26 @@ pub fn run_examples() {
     let mut result: Result<i32, &str> = Ok(12);
     result = Err("something went wrong?");
 
-    //// blocks
+    //// blocks, scopes, variable shadowing, freezing
+    // we will need this later...
+    let mut mutable_var = 0;
     // blocks are expressions, which means that they evaluate to a value!
     // they are also scopes (like in most other languages)
     {
         // variables of higher-up scopes are accessible:
-        //println!("{}", blue);
+        let blue_ref = &blue;
+        // variable shadowing is possible!
+        // the following variable now shadows "blue" from the outer scope
+        let blue = "this is allowed!";
+        // even this is allowed? variable shadowing in the same scope?
+        let blue = 2;
+        // mutable variables from outer scopes can be "frozen"
+        // this means shadowed by an immutable variant
+        let mutable_var = mutable_var;
+        //mutable_var += 1; is not allowed! variable is immutable in this scope!
     };
+    // this is allowed here, as variable is not shadowed by an immutable copy anymore
+    mutable_var += 1; 
     // the default return type (if not speficied) is the unit type
     let block = {};
     assert_eq!(block, ());
