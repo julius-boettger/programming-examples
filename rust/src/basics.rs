@@ -90,15 +90,17 @@ pub fn run_examples() {
     // ...or by their index, like this:
     let blue = rgb_tuple.2;
 
-    //// compound data type: array
+    //// compound data type: array (and array slice)
     // fixed-length collection of same type
     let array = [1, 10, 100, 1000];
     // type is combination of type and length
-    let typed_array: [bool; 1] = [true];
+    let typed_array: [bool; 2] = [true, false];
     // initialize all elements with the value -1
     let default_value_array: [i32; 10] = [-1; 10];
     // element of index 
     let first_element = array[0]; // => 1
+    // safely get element of index as an option
+    let first_element_option = array.get(342); // => None
     // length of array
     let length = array.len(); // => 3
     // array slices are parts of an existing array that can be retreived using ranges
@@ -110,6 +112,16 @@ pub fn run_examples() {
     // String object: supposed to be mutable
     let mut string_object: String = String::from(string_slice);
     string_object.push_str("... but this can!");
+
+    //// options and results
+    // option can be Some(value) or None
+    // you can think of None as null in other languages, but with better checking
+    let mut option: Option<i32> = Some(3);
+    option = None;
+    // result can be Ok(value) or Err(error)
+    // value and error have the supplied types
+    let mut result: Result<i32, &str> = Ok(12);
+    result = Err("something went wrong?");
 
     //// blocks
     // blocks are expressions, which means that they evaluate to a value!
