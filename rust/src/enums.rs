@@ -11,16 +11,17 @@ pub fn run_examples() {
         StructType { name: String }
     }
 
-    // each option is assigned a numeric value. the following is the default
+    // each option is assigned a numeric value ("discriminant").
+    // the following is the default
     enum Numbers {
         Zero, // 0
         One,  // 1
         Two   // 2
     }
-    // value can be retreived with casting
+    // the discriminant can be retreived with casting
     assert_eq!(Numbers::Zero as i32, 0);
 
-    // values can also be assigned to options explicitly
+    // discriminants can also be assigned to options explicitly
     enum FavouriteNumbers {
         First = 12,
         Second = 2

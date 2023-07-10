@@ -25,6 +25,7 @@ mod basics;
 
 mod enums;
 mod macros;
+mod traits;
 mod structs;
 mod control;
 mod functions;
@@ -42,6 +43,7 @@ fn main() {
 
     enums::run_examples();
     macros::run_examples();
+    traits::run_examples();
     structs::run_examples();
     control::run_examples();
     functions::run_examples();
