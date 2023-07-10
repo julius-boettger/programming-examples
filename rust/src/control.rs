@@ -38,6 +38,8 @@ pub fn run_examples() {
 
     // for: only option is what other languages call "for-each":
     for j in 1..=3 {
-        // j will be 1, 2, 3
+        // j will be 1, 2, 3 (see ranges)
     }
+    // this would do something 3 times wi
+    for _ in 0..3 {}
 }

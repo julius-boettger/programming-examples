@@ -17,10 +17,6 @@ pub fn run_examples() {
     // the program will panic if two expressions do not have the same value
     assert_eq!(2, 2);
 
-    //// the underscore _
-    // assigning something to _ means to ignore the result and instantly throw it away
-    let _ = 42;
-
     //// variables
     let first_variable;
     first_variable = 12;
@@ -40,6 +36,17 @@ pub fn run_examples() {
     let second_variable_mut_pointer = &mut second_variable;
     *second_variable_mut_pointer += 1;
     assert_eq!(second_variable, 15);
+
+    //// the underscore _
+    // assigning something to _ means to ignore the result and instantly throw it away
+    let _ = 42;
+
+    //// ranges and range notation
+    // ranges are used in array slicing, for loops, ...
+    // first number is inclusive, second is exclusive
+    let range = 1..5; // 1, 2, 3, 4
+    // "=" makes second number inclusive too
+    let range_inclusive = 1..=5; // 1, 2, 3, 4, 5
 
     //// primitive data types
     let data_types: (
@@ -90,11 +97,8 @@ pub fn run_examples() {
     let first_element = array[0]; // => 1
     // length of array
     let length = array.len(); // => 3
-    // array slices are parts of an existing array
-    // syntax is: first index .. last index + 1 (!)
-    let array_slice: &[i32] = &array[1..length]; // index 0 until end
-    // if the two indices are the same the result is always an empty array slice
-    let empty_array = &array[0..0];
+    // array slices are parts of an existing array that can be retreived using ranges
+    let array_slice: &[i32] = &array[1..=2]; // index 1 and 2
 
     //// compound data type: string
     // string slice: supposed to be immutable
@@ -110,7 +114,7 @@ pub fn run_examples() {
         // variables of higher-up scopes are accessible:
         //println!("{}", blue);
     };
-    // the default return type (if not speficied) is unit type
+    // the default return type (if not speficied) is the unit type
     let block = {};
     assert_eq!(block, ());
 }
