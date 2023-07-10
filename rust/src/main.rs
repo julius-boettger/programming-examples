@@ -15,6 +15,7 @@ SETUP
 // ignore some warnings for this file
 #![allow(dead_code)]
 #![allow(unused_macros)]
+#![allow(unused_imports)]
 #![allow(unreachable_code)]
 #![allow(unused_variables)]
 #![allow(unused_assignments)]

@@ -1,3 +1,6 @@
+// this enum is not in the examples function on purpose!
+enum SimpleEnum { Cool }
+
 /// examples for enums
 pub fn run_examples() {
     // an enum is a type which can only be one of a few different options
@@ -35,5 +38,11 @@ pub fn run_examples() {
     enum EnumWithVeryLongAndSpecificName { OnlyOption }
     type LongEnum = EnumWithVeryLongAndSpecificName;
     let option = LongEnum::OnlyOption;
+
+    // "use" values of SimpleEnum in this scope (defined at top of file)
+    use crate::enums::SimpleEnum::*;
+    let cool_var = Cool;
+    // it is also possible to just "use" specific elements
+    use Numbers::{Zero, One};
 
 }
