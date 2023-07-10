@@ -47,6 +47,10 @@ pub fn run_examples() {
     let range = 1..5; // 1, 2, 3, 4
     // "=" makes second number inclusive too
     let range_inclusive = 1..=5; // 1, 2, 3, 4, 5
+    // this also exists
+    let range_to = ..5; // x < 5
+    let range_to_inclusive = ..=5; // x <= 5
+    let range_from = 1..; // x >= 1
 
     //// primitive data types
     let data_types: (
@@ -63,10 +67,10 @@ pub fn run_examples() {
     );
 
     // integer values can be written in different numeral systems
-    let decimal = 10;
-    let hexadecimal = 0xA; // => 10
-    let octal = 0o12;      // => 10
-    let binary = 0b1010;   // => 10
+    let decimal     =   10;
+    let hexadecimal = 0xA;    // => 10
+    let octal       = 0o12;   // => 10
+    let binary      = 0b1010; // => 10
     // underscores can be inserted to improve readability
     let big_number = 1_000_000_000;
     // f64 can use scientific e notation
