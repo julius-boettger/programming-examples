@@ -68,9 +68,9 @@ pub fn run_examples() {
     //// primitive data types
     let data_types: (
         // signed integers (can be negative)
-        i8, i16, i32, i64, isize, // isize depends on architecture, e.g. 32b => 32b
+        i8, i16, i32, i64, i128, isize, // isize depends on architecture, e.g. 32b => 32b
         // unsigned integers (cannot be negative)
-        u8, u16, u32, u64, usize, // usize depends on architecture, e.g. 32b => 32b
+        u8, u16, u32, u64, u128, usize, // usize depends on architecture, e.g. 32b => 32b
         // signed floating points
         f32, f64,
         bool, // boolean, true or false
@@ -141,6 +141,8 @@ pub fn run_examples() {
     // we will need this later...
     let mut mutable_var = 0;
     // blocks are expressions, which means that they evaluate to a value!
+    // this also counts for blocks used in all kinds of loops, if-expressions, ...
+    // functions are an exception! returning their values and scopes are a bit different
     // they are also scopes (like in most other languages)
     {
         // variables of higher-up scopes are accessible:
@@ -160,4 +162,11 @@ pub fn run_examples() {
     // the default return type (if not speficied) is the unit type
     let block = {};
     assert_eq!(block, ());
+    // blocks return their last expression without a semicolon
+    // the keyword "return" can not be used!
+    let block_with_value = {
+        let x = 4u128;
+        x
+    };
+    assert_eq!(block_with_value, 4);
 }
