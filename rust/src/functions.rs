@@ -20,9 +20,9 @@ pub fn run_examples() {
 
     assert_eq!(nothing(), ());
 
-    // pass by reference: take (mutable if needed) pointer as argument
+    // pass by reference: (mutable) borrow as argument
     fn increment(x: &mut i32) -> () { 
-        // dereferece pointer and increment it
+        // dereferece borrowed value and increment it
         *x += 1;
     }
 

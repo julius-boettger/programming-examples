@@ -17,7 +17,7 @@ pub fn run_examples() {
     // the program will panic if two expressions do not have the same value
     assert_eq!(2, 2);
 
-    //// variables, (im)mutability, pointers
+    //// variables, (im)mutability, references/borrowing
     let first_variable;
     first_variable = 12;
     // variables are immutable by default, meaning they cannot be reassigned.
@@ -27,14 +27,14 @@ pub fn run_examples() {
     // these variables have inferred types as i did not specify one.
     // types can also be annotated manually, like i32 (signed 32-bit integer, usually the go-to)
     let integer_variable: i32 = 0;
-    // this variable contains a memory address (pointer)
-    let second_variable_pointer = &second_variable;
-    // this variable gets assigned the value of the address (dereferenced pointer)
+    // this variable contains a memory address ("borrow")
+    let second_variable_borrow = &second_variable;
+    // this variable gets assigned the value of the address (dereference)
     // changing the value of this will not affect the original variable!
-    let second_variable_copy = *second_variable_pointer;
-    // mutable pointers (&mut) can be modified when dereferenced
-    let second_variable_mut_pointer = &mut second_variable;
-    *second_variable_mut_pointer += 1;
+    let second_variable_copy = *second_variable_borrow;
+    // mutable borrows (&mut) can be modified when dereferenced
+    let second_variable_mut_borrow = &mut second_variable;
+    *second_variable_mut_borrow += 1;
     assert_eq!(second_variable, 15);
     
     //// constants
