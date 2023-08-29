@@ -35,18 +35,15 @@ pub fn run_examples() {
     // mutable borrows (&mut) can be modified when dereferenced
     let second_variable_mut_borrow = &mut second_variable;
     *second_variable_mut_borrow += 1;
+    // this... is possible
+    let too_many_borrows = ***(&&&&&first_variable);
     assert_eq!(second_variable, 15);
     
-    //// constants
-    // need to have their type annotated explicitly
+    // constants: need to have their type annotated explicitly
     const DAYS_IN_A_YEAR: u16 = 365;
-
-    //// the underscore _
-    // assigning something to _ means to ignore the result and instantly throw it away
+    // underscore: assigning something to _ means to ignore the result and instantly throw it away
     let _ = 42;
-
-    //// boolean operations: not, and, or
-    // pretty familiar :)
+    // boolean operations: not, and, or
     let logic = (!false && true) || false;
 
     //// type aliases

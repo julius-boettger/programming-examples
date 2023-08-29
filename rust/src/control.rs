@@ -56,7 +56,7 @@ pub fn run_examples() {
     }
     assert_eq!(i, 0);
 
-    // for: only option is what other languages call "for-each":
+    // for loop with range notation
     for j in 1..=3 {
         // j will be 1, 2, 3 (see ranges)
     }

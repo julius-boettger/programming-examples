@@ -1,8 +1,9 @@
 /// examples for functions
 pub fn run_examples() {
-    // pass by value
+    // simple pass by value function
     fn sum(x: i32, y: i32) -> i32 {
         // the following two lines do the exact same thing!
+        // (but only for functions? "return" can't be used with other expressions...?)
         return x + y;
         x + y // rust-syntax "tail", mind the missing ; at the end!
     }
