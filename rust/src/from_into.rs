@@ -46,4 +46,23 @@ pub fn run_examples() {
     let _ =          u128::from(wrapper.clone());
     let _: NumberWrapper = (    num.clone()).into();
     let _:          u128 = (wrapper.clone()).into();
+
+    // try_from() and try_into() return results because the conversion
+    // can fail in this (bad) example the error is of type Infallible,
+    // which means an error is impossible.
+    use std::convert::Infallible;
+    let my_string_from: Result<String, Infallible> = String::try_from('x');
+    let my_string_into: Result<String, Infallible> = 'x'.try_into();
+
+    // TryFrom and TryInto are also traits
+    impl TryFrom<i64> for NumberWrapper {
+        type Error = (); // this is necessary!
+        /// conversion only works if item is >= 0
+        fn try_from(item: i64) -> Result<Self, Self::Error> {
+            match item {
+                0.. => Ok(NumberWrapper { value: (item as u128) }),
+                _ => Err(())
+            }
+        }
+    }
 }
