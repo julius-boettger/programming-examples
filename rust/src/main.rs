@@ -29,6 +29,7 @@ mod traits;
 mod structs;
 mod control;
 mod functions;
+mod from_into;
 
 // entry point of the program
 fn main() {
@@ -47,4 +48,5 @@ fn main() {
     structs::run_examples();
     control::run_examples();
     functions::run_examples();
+    from_into::run_examples();
 }
