@@ -9,7 +9,7 @@ pub fn run_examples() {
     //// from() and into() can also be written for your own structs/enums
 
     // example struct
-    #[derive(Debug, Clone)]
+    #[derive(Debug, Clone, PartialEq)]
     struct NumberWrapper { value: u128 }
 
     // implementing the From trait makes from() and into() (!) available
@@ -65,4 +65,33 @@ pub fn run_examples() {
             }
         }
     }
+
+    // into string: NumberWrapper => string
+    // generates to_string() and enables display formatting
+    use std::fmt;
+    impl fmt::Display for NumberWrapper {
+        fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+            write!(f, "{}", self.value)
+        }
+    }
+    // from string: string => NumberWrapper
+    use std::str;
+    impl str::FromStr for NumberWrapper {
+        type Err = (); // this is necessary!
+        fn from_str(s: &str) -> Result<Self, Self::Err> {
+            // try to parse string to u128 and return Result based on success
+            match s.parse::<u128>() {
+                Ok(value) => Ok(NumberWrapper { value }),
+                Err(_) => Err(())
+            }
+        }
+    }
+    // when using display formatting, calling to_string() is obsolete
+    assert_eq!(
+        format!("{}", wrapper),
+        format!("{}", wrapper.to_string())
+    );
+    // parse from string
+    assert_eq!( "5".parse::<NumberWrapper>(), Ok(NumberWrapper { value: 5 }));
+    assert_eq!("-1".parse::<NumberWrapper>(), Err(()));
 }
