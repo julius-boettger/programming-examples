@@ -12,13 +12,12 @@ pub fn run_examples() {
     let result = sum(2, 2);
     assert_eq!(result, 4);
 
-    // return type is "void" if not specified, meaning it will return the unit type
     // functions cannot access variables of higher scopes!
     fn nothing() {
-        // the following line throws an error as blue is not accessible in this scope
-        //println!("{}", blue);
+        // the following line throws an error as "result" is not accessible in this scope
+        //println!("{}", result);
     }
-
+    // return type is "void" if not specified, meaning it will return the unit type
     assert_eq!(nothing(), ());
 
     // pass by reference: (mutable) borrow as argument

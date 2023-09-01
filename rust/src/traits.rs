@@ -38,10 +38,14 @@ pub fn run_examples() {
         }
     }
 
-    // a trait is a collection of methods that can be implemented by a type.
+    // a trait is a collection of methods that can be implemented by a type
     trait Pet {
+        // a function doesn't need to have a body
         fn name(&self) -> &String;
-        fn noise() -> String;
+        // but it can have one to provide a default implementation
+        fn noise() -> String {
+            String::from("*weird noise*")
+        }
     }
     // Gecko needs to implement all of Pet's methods in this implementation block
     impl Pet for Gecko {
