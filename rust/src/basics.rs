@@ -18,6 +18,7 @@ pub fn run_examples() {
     assert_eq!(2, 2);
 
     //// variables, (im)mutability, references/borrowing
+    // variables are allocated on the stack by default
     let first_variable;
     first_variable = 12;
     // variables are immutable by default, meaning they cannot be reassigned.
