@@ -65,4 +65,17 @@ pub fn run_examples() {
     assert_eq!(get_result(), result);
     // "move" forces taking ownership of captured variables.
     let own_result = move || println!("I own {}!", result);
+
+    //// functions as function arguments
+    // call a function n times
+    // F is a generic type parameter
+    fn call_fuction<F>(function: F, n: u8) where 
+        // specify function signature of type F
+        F: Fn()     -> () { // take immutable borrows of arguments
+      //F: FnMut()  -> () { // take mutable borrows of arguments
+      //F: FnOnce() -> () { // take ownership of arguments
+        for _ in 0..n { function(); }
+    }
+    // try it out!
+    //call_fuction(|| println!("closure speaking :)"), 3);
 }
