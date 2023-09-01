@@ -78,4 +78,10 @@ pub fn run_examples() {
     }
     // try it out!
     //call_fuction(|| println!("closure speaking :)"), 3);
+
+    //// diverging functions (never return)
+    // mind the two return types which serve the same purpose
+    use std::convert::Infallible;
+    fn panic1() -> !          { panic!("something went wrong"); }
+    fn panic2() -> Infallible { panic!("something went wrong"); }
 }
