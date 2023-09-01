@@ -2,8 +2,6 @@
 
 ABOUT
 - i write these examples as i go through "rust by example" (https://doc.rust-lang.org/stable/rust-by-example/)
-- i occasionally skip sections to work through them later
-    - 1.2 Formatted print
 
 SETUP
 - get rust: https://www.rust-lang.org/learn/get-started

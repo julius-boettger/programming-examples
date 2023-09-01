@@ -50,4 +50,19 @@ pub fn run_examples() {
     // out of scope at the end of the function which owns it
     free_memory(wrapper);
     // when a type DOES derive Copy a move will not occur, instead the resource will be copied.
+
+    //// closures
+    // closures are anonymous functions that can access variables of higher scopes
+    let sum_closure       = |x: i32, y: i32| -> i32 { x + y };
+    let sum_closure_short = |x: i32, y: i32|          x + y;
+
+    // accessing variables of higher scopes is called "capturing" them.
+    // each variable is captured by value, by mutable reference or by immutable reference.
+    // the least invasive of these options is inferred from the context.
+    // also: no arguments!
+    let get_result = || result;
+    // closures can be called like any other function
+    assert_eq!(get_result(), result);
+    // "move" forces taking ownership of captured variables.
+    let own_result = move || println!("I own {}!", result);
 }
