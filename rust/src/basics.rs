@@ -168,3 +168,14 @@ pub fn run_examples() {
     };
     assert_eq!(block_with_value, 4);
 }
+
+// module for unit tests, run them with "cargo test"
+#[cfg(test)]
+mod tests {
+    // use stuff from outer scope
+    use super::*;
+
+    // a test case will fail if it panics
+    #[test] fn will_pass() { assert_eq!(2 + 2, 4); }
+    #[test] fn will_fail() { panic!(); }
+}
