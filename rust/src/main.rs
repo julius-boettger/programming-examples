@@ -18,7 +18,7 @@ SETUP
 #![allow(unused_variables)]
 #![allow(unused_assignments)]
 
-// import module by filename (code in other files)
+// import code in other files as modules
 mod basics;
 
 mod enums;
@@ -26,6 +26,7 @@ mod macros;
 mod traits;
 mod structs;
 mod control;
+mod modules;
 mod functions;
 mod from_into;
 
@@ -45,6 +46,7 @@ fn main() {
     traits::run_examples();
     structs::run_examples();
     control::run_examples();
+    modules::run_examples();
     functions::run_examples();
     from_into::run_examples();
 }

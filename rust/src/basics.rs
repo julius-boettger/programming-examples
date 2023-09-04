@@ -1,5 +1,6 @@
 /// examples for basic syntax and concepts (this is a doc comment)
-// "pub" is needed to make this function public, meaning accessible from other modules (this file is also a module)
+// if you are wondering about "pub", see modules.rs
+// if you are wondering about "fn run_examples() {", see functions.rs
 pub fn run_examples() {
     //// comments
     // normal comment
