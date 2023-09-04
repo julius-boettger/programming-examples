@@ -137,15 +137,26 @@ pub fn run_examples() {
     let mut string_object: String = String::from(string_slice);
     string_object.push_str("... but this can!");
 
-    //// options and results
-    // option can be Some(value) or None
+    //// Option can be Some(value) or None
     // you can think of None as null in other languages, but with better checking
-    let mut option: Option<i32> = Some(3);
-    option = None;
-    // result can be Ok(value) or Err(error)
+    let option: Option<i32> = Some(3);
+    // get contained value or panic if None
+    let contained_value = option.unwrap();
+    // get contained value or panic with message if None
+    let contained_value = option.expect("something went wrong?");
+    // get contained value or a default if None
+    let contained_value = option.unwrap_or(0);
+
+    //// Result can be Ok(value) or Err(error)
     // value and error have the supplied types
-    let mut result: Result<i32, &str> = Ok(12);
-    result = Err("something went wrong?");
+    let mut result: Result<i32, &str> = Err("something went wrong?");
+    result = Ok(12);
+    // get ok as option
+    let ok_option = result.ok();
+    // get err as option
+    let err_option = result.err();
+    // most functions from Option also work
+    let contained_value = result.unwrap_or(0);
 
     //// blocks, scopes, variable shadowing, freezing
     // we will need this later...
