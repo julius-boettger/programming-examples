@@ -119,6 +119,17 @@ pub fn run_examples() {
     // array slices are parts of an existing array that can be retreived using ranges
     let array_slice: &[i32] = &array[1..=2]; // index 1 and 2
 
+    //// compound data type: vector
+    // vectors are resizable arrays
+    let mut vector = vec![1, 2, 3];
+    vector.push(4);
+    // iteration
+    for  x            in vector.iter()             {}
+    for  x        in vector.iter_mut()         {} // mutable!
+    for (x, i) in vector.iter().enumerate() {} // with index!
+    // vectors can also be collected from iterators
+    let collected: Vec<u8> = (0..10).collect();
+
     //// compound data type: string
     // string slice: supposed to be immutable
     let string_slice: &str = "this can never be changed";
