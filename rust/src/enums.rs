@@ -40,10 +40,15 @@ pub fn run_examples() {
     type LongEnum = EnumWithVeryLongAndSpecificName;
     let option = LongEnum::OnlyOption;
 
-    // "use" values of SimpleEnum in this scope (defined at top of file)
-    use crate::enums::SimpleEnum::*;
+    // this can lead to pretty long statements
+    let cool_var = SimpleEnum::Cool;
+    // "use" values of an enum in this scope to make them more easily accessible
+    // but this is bad practice! it can lead to some unexpected behaviour with match expressions
+    use SimpleEnum::*;
     let cool_var = Cool;
+    // this should be done instead:
+    use SimpleEnum as S;
+    let cool_var = S::Cool;
     // it is also possible to just "use" specific elements
     use Numbers::{Zero, One};
-
 }

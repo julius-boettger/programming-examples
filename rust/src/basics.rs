@@ -1,5 +1,5 @@
 /// examples for basic syntax and concepts (this is a doc comment)
-// "pub" is needed to make this function public, meaning accessible by other files when importing as a module
+// "pub" is needed to make this function public, meaning accessible from other modules (this file is also a module)
 pub fn run_examples() {
     //// comments
     // normal comment
