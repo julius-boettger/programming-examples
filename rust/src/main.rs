@@ -7,16 +7,20 @@ SETUP
 - get rust: https://www.rust-lang.org/learn/get-started
 - create new project: cargo new project-name
 - run project: cargo run
+- run tests in project: cargo test
 
 */
 
-// ignore some warnings for this file
-#![allow(dead_code)]
-#![allow(unused_macros)]
-#![allow(unused_imports)]
-#![allow(unreachable_code)]
-#![allow(unused_variables)]
-#![allow(unused_assignments)]
+// ignore some warnings for this crate (by using an attribute)
+// the ! means "for this crate", without it it's "for this module/item"
+#![allow(
+    dead_code,
+    unused_macros,
+    unused_imports,
+    unreachable_code,
+    unused_variables,
+    unused_assignments
+)]
 
 // import code in other files as modules
 mod basics;
