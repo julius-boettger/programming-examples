@@ -1,3 +1,7 @@
+// static: like const, but has a static lifetime too
+// (needed for later example)
+static HOURS_IN_A_DAY: u8 = 24;
+
 /// examples for functions
 pub fn run_examples() {
     // simple pass-by-value function
@@ -84,4 +88,44 @@ pub fn run_examples() {
     use std::convert::Infallible;
     fn panic1() -> !          { panic!("something went wrong"); }
     fn panic2() -> Infallible { panic!("something went wrong"); }
+
+    //// lifetimes
+    // the compilers borrow checker gives lifetimes to borrows
+    // to ensure their validity. the compiler elides (automatically infers)
+    // lifetimes in a lot of common use cases, but sometimes it
+    // needs explicit lifetime annotation.
+
+    // argument x must live at least as long as this function
+    fn print_ref<'a>(x: &'a i32) {
+        println!("x is {}", x);
+    }
+
+    fn shouldnt_work<'a>() {
+        // normal local variable (only available for this function)
+        let x: bool = true;
+        // reference that should live at least as long as this function
+        let y: &'a bool;
+        // doesn't work! x does not live long enough
+        //y = &x;
+    }
+
+    // returned references must live at least as long as an input
+    // (or be static)
+    fn passthrough<'a>(x: &'a i32) -> &'a i32 { x }
+
+    // 'a must live at least as long as 'b
+    fn different_lengths<'a: 'b, 'b>(x: &'a i32, y: &'b i32) -> &'b i32 {
+        // "coercion": 
+        // x is returned with a possibly shorter lifetime than it starts with
+        x
+    }
+
+    // the 'static lifetime: borrowed data lives for the whole duration the program is running
+    fn static_example() -> &'static u8 {
+        &HOURS_IN_A_DAY
+    }
+
+    // structs, enums and methods work in pretty much the same way
+    struct Borrowed<'a>(&'a i32);
+
 }
