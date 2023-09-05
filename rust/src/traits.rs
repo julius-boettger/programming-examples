@@ -18,6 +18,9 @@ pub fn run_examples() {
         fn increase_age(&mut self) -> () {
             self.age += 1;
         }
+
+        // another example function
+        fn function() {}
     }
 
     // instantiate a new person
@@ -25,8 +28,10 @@ pub fn run_examples() {
         String::from("peter"),
         58
     );
-    // call the defined method
+    // call the defined method with "."
     person.increase_age();
+    // call another function with "::"
+    Person::function();
 
     //// traits
 
