@@ -109,4 +109,41 @@ pub fn run_examples() {
     }
     // this would do something 3 times with no iterating variable
     for _ in 0..3 {}
+
+    //// if let (else): improved enum matching
+    // only execute block if enum can successfully be destructured...
+    let result: String = if let Some(number) = Some(3) {
+       format!("got number: {}", number)
+    } else {
+        "no number :(".to_owned()
+    };
+    // ...or if enum matches
+    if let None = None::<bool> {
+        // something happens!
+    }
+    // bindings are allowed!
+    // also notice the single "=" (not "=="), which means that
+    // implementing PartialEq for comparisons is not required!
+    if let Some(value @ 100..) = Some(128) {
+        // something happens!
+    }
+
+    //// while let: improved matching in loops (similar to if let)
+    let mut optional_counter = Some(0);
+    // while enum can be destructured
+    while let Some(i) = optional_counter {
+        if i > 9 { optional_counter = None; }
+        else { optional_counter = Some(i + 1) }
+    }
+
+    //// let else: diverge if something fails
+    // try to bind a variable, diverge (panic, return, break, ...) if it fails
+    let x = 3 else {
+        panic!("I thought this couldn't go wrong...!?")
+        //return
+        //break
+    };
+    // if the program reaches this point we can be sure that x was assigned successfully
+    let success = format!("nice! {} works!", x);
+
 }

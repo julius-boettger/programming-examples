@@ -10,16 +10,11 @@ SETUP
 - run tests in project: cargo test
 
 TODO (rust by example chapters)
-- subchapters
-    - 8.6 if let
-    - 8.7 let-else
-    - 8.8 while let
-- whole chapters
-    - 14 generics
-    - 18 error handling
-    - 19 std library types
-    - 20 std misc
-    - std::collections
+- 14 generics
+- 18 error handling
+- 19 std library types
+- 20 std misc
+- std::collections
 
 */
 
@@ -31,7 +26,8 @@ TODO (rust by example chapters)
     unused_imports,
     unreachable_code,
     unused_variables,
-    unused_assignments
+    unused_assignments,
+    irrefutable_let_patterns
 )]
 
 // import code in other files as modules

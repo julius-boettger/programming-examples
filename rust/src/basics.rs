@@ -136,6 +136,9 @@ pub fn run_examples() {
     // String object: supposed to be mutable
     let mut string_object: String = String::from(string_slice);
     string_object.push_str("... but this can!");
+    // String from &str: two options
+    let _ = String::from("option 1");
+    let _ =              "option 2".to_owned();
 
     //// Option can be Some(value) or None
     // you can think of None as null in other languages, but with better checking

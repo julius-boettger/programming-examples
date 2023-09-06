@@ -84,6 +84,7 @@ pub fn run_examples() {
     //call_fuction(|| println!("closure speaking :)"), 3);
 
     //// diverging functions (never return)
+    // "return" and "break" also cause some divergent behaviour, as some code will never be executed
     // mind the two return types which serve the same purpose
     use std::convert::Infallible;
     fn panic1() -> !          { panic!("something went wrong"); }
