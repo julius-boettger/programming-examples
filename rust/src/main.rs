@@ -11,7 +11,6 @@ SETUP
 
 TODO (rust by example chapters)
 - subchapters
-    - 8.5.1 match destructuring
     - 8.6 if let
     - 8.7 let-else
     - 8.8 while let

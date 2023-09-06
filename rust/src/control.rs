@@ -36,6 +36,53 @@ pub fn run_examples() {
         // match all possible values, should be last arm
         _ => "idk what that is"
     };
+    //// match expressions can destructure some types into their components
+    // tuples
+    let result: &str = match (1, 2, 3) {
+        (0, 0, 0) => "all three values are 0",
+        (0, _, 0) => "a and c are 0", // second value doesnt matter
+        (0, b, c) => "a is 0, b and c are... something",
+        (1, .., 1) => "a and c are 1", // all values between first and last dont matter
+        (1, ..) => "a is 1",
+        (.., 1) => "c is 1",
+        (a, b, c) => "all values are... something"
+    };
+    // arrays
+    let result: String = match [1, 2, 3] {
+        // everything for tuples also applies
+        [0, ..] => "first value is 0".to_owned(),
+        // store middle part in a new array
+        [first, middle @ .., last] =>
+            format!("first: {}, middle: {:?}, last: {}", first, middle, last)
+    };
+    // structs
+    struct Struct { a: u8, b: u8, c: u8 }
+    let result: &str = match (Struct { a: 1, b: 2, c: 3 }) {
+        // ignore some fields, expect values on others
+        Struct { a: 1, b, .. } => "a is 1, b is something, rest doesnt matter",
+        // rename fields
+        Struct { a: x, b: y, c: z } => "renamed",
+    };
+    // borrows
+    let mut value = 5;
+    match value {
+        // the matched value is modifiable by matching a mutable borrow
+        ref mut value => {
+            *value = 10;
+        }
+    }
+    assert_eq!(value, 10);
+    // enums
+    enum Color {
+        Red, Green, Blue,
+        RGB(u8, u8, u8)
+    }
+    let result: &str = match Color::Red {
+        Color::Blue => "blue :)",
+        // destructure like normal tuple (same with structs, ...)
+        Color::RGB(r, .., b) => "rgb",
+        _ => "dont care"
+    };
 
     //// loops
     // loop: executes indefinitely until a break is reached
