@@ -9,6 +9,20 @@ SETUP
 - run project: cargo run
 - run tests in project: cargo test
 
+TODO (rust by example chapters)
+- subchapters
+    - 8.5.1 match destructuring
+    - 8.6 if let
+    - 8.7 let-else
+    - 8.8 while let
+    - 16.2 + 16.6 dyn/impl traits
+- whole chapters
+    - 14 generics
+    - 18 error handling
+    - 19 std library types
+    - 20 std misc
+    - std::collections
+
 */
 
 // ignore some warnings for this crate (by using an attribute)
