@@ -14,7 +14,6 @@ TODO (rust by example chapters)
     - 8.6 if let
     - 8.7 let-else
     - 8.8 while let
-    - 16.2 + 16.6 dyn/impl traits
 - whole chapters
     - 14 generics
     - 18 error handling

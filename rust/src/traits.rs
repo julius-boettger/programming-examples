@@ -48,7 +48,7 @@ pub fn run_examples() {
         // a function doesn't need to have a body
         fn name(&self) -> String;
         // but it can have one to provide a default implementation
-        fn noise() -> String {
+        fn noise(&self) -> String {
             String::from("*weird noise*")
         }
     }
@@ -59,7 +59,7 @@ pub fn run_examples() {
             self.name.clone()
         }
 
-        fn noise() -> String {
+        fn noise(&self) -> String {
             String::from("...")
         }
     }
@@ -90,6 +90,13 @@ pub fn run_examples() {
             String::from("(unnamed komodo dragon)")
         }
     }
+
+    //// returning / passing traits
+    // to return/pass a trait from/to a function you need to use "dyn" or "impl":
+    //  dyn => dynamic dispatch: determine types at runtime, point to it (small performance penalty)
+    // impl =>  static dispatch: determine types at compile time, create a copy of the function for each
+    fn pet_name_dynamic(pet:  &dyn Pet) -> String { pet.name() }
+    fn pet_name_static_(pet: &impl Pet) -> String { pet.name() }
 
     //// working with overlapping traits
     // it's possible for a type to implement functions with the same name from different traits
