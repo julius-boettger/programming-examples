@@ -148,50 +148,6 @@ pub fn run_examples() {
     let _ = String::from("option 1");
     let _ =              "option 2".to_owned();
 
-    //// Option can be Some(value) or None
-    // you can think of None as null in other languages, but with better checking
-    let option: Option<i32> = Some(3);
-    // get contained value or panic if None
-    let contained_value = option.unwrap();
-    // get contained value or panic with message if None
-    let contained_value = option.expect("something went wrong?");
-    // get contained value or a default if None
-    let contained_value = option.unwrap_or(0);
-
-    //// Result can be Ok(value) or Err(error)
-    // value and error have the supplied types
-    let mut result: Result<i32, &str> = Err("something went wrong?");
-    result = Ok(12);
-    // get ok as option
-    let ok_option = result.ok();
-    // get err as option
-    let err_option = result.err();
-    // most functions from Option also work
-    let contained_value = result.unwrap_or(0);
-
-    //// the ? operator
-    // when working with multiple options/results in a fucntion which returns one you can use the ? operator
-    // as a shortcut to either extract the success value or immediately return the failure value
-    fn get_result() -> Result<String, ()> {
-        // result that was generated earlier in this function
-        let earlier_result: Result<String, ()> = Ok("this is fine".to_owned());
-        // extract String value or return unit type error
-        let value = earlier_result?;
-        // if we're here: extraction was successful!
-        println!("extraction successful!");
-        Ok(value)
-    }
-    // similar example with options
-    fn get_option() -> Option<String> {
-        // option that was generated earlier in this function
-        let earlier_option: Option<String> = Some("this is fine".to_owned());
-        // extract String value or return None
-        let value = earlier_option?;
-        // if we're here: extraction was successful!
-        println!("extraction successful!");
-        Some(value)
-    }
-
     //// blocks, scopes, variable shadowing, freezing
     // we will need this later...
     let mut mutable_var = 0;

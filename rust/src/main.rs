@@ -11,7 +11,7 @@ SETUP
 
 TODO (rust by example chapters)
 - 14 generics
-- 18 error handling
+- 18.3.4 or, or_else, ...
 - std::collections
     - VecDeque
     - LinkedList
@@ -47,6 +47,7 @@ mod control;
 mod modules;
 mod functions;
 mod from_into;
+mod error_handling;
 
 // entry point of the program
 fn main() {
@@ -67,4 +68,5 @@ fn main() {
     modules::run_examples();
     functions::run_examples();
     from_into::run_examples();
+    error_handling::run_examples();
 }
