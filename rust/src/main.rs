@@ -12,7 +12,6 @@ SETUP
 TODO (rust by example chapters)
 - 14 generics
 - 18 error handling
-- 19.5.1 "?"
 - std::collections
     - VecDeque
     - LinkedList
