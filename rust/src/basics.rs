@@ -201,6 +201,24 @@ pub fn run_examples() {
         x
     };
     assert_eq!(block_with_value, 4);
+
+    //// Rc: reference counted (thread-unsafe!)
+    // tracks number of references to the wrapped value.
+    // counter is increased when Rc is cloned, which just
+    // creates another pointer to the wrapped value.
+    // Rc and wrapped value are dropped when counter is 0.
+    // all reference holders are owners (multiple owners!)
+    use std::rc::Rc;
+    let rc = Rc::new("this is reference counted and stuff");
+    // there is exactly one reference to the wrapped value after initialization
+    assert_eq!(1, Rc::strong_count(&rc));
+    // borrow
+    let rc_borrow = Rc::clone(&rc);
+    assert_eq!(2, Rc::strong_count(&rc));
+
+    //// Arc: atomically reference counted => Rc but thread-safe
+    use std::sync::Arc;
+    let arc = Arc::new("reference counted & thread safe");
 }
 
 // module for unit testing the parent module

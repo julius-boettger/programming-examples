@@ -12,9 +12,16 @@ SETUP
 TODO (rust by example chapters)
 - 14 generics
 - 18 error handling
-- 19 std library types
-- 20 std misc
+- 19.5.1 "?"
 - std::collections
+    - VecDeque
+    - LinkedList
+    - 19.7 HashMap
+    - BTreeMap
+    - 19.7.2 HashSet
+    - BTreeSet
+    - BinaryHeap
+- 20 std misc
 
 */
 
