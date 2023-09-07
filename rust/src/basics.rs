@@ -40,6 +40,14 @@ pub fn run_examples() {
     // this... is possible
     let too_many_borrows = ***(&&&&&first_variable);
     assert_eq!(second_variable, 15);
+
+    //// heap allocation
+    // variables are allocated on the stack by default, which is fast,
+    // but requires the compiler to know the size of the object beforehand.
+    // if thats not possible, heap allocation is an option:
+    let mut heap_allocated = Box::new("this is on the heap!");
+    // boxes are smart pointers and can be dereferenced
+    *heap_allocated = "new string";
     
     // constants: need to have their type annotated explicitly
     const DAYS_IN_A_YEAR: u16 = 365;
