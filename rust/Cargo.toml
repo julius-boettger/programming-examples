@@ -2,3 +2,7 @@
 name = "rust-examples"
 version = "1.0.0"
 edition = "2021"
+
+# crates from crates.io to be used as dependencies
+[dependencies]
+futures="0.3" # useful for async/await

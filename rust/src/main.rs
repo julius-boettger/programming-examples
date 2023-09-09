@@ -13,6 +13,7 @@ TODO (rust by example chapters)
 - 14 generics
 - 18.3.4 or, or_else, ...
 - 20 std misc
+- async https://rust-lang.github.io/async-book
 
 */
 
@@ -37,6 +38,7 @@ mod traits;
 mod structs;
 mod control;
 mod modules;
+mod r#async; // escape module name because it's also a keyword
 mod functions;
 mod from_into;
 mod collections;
@@ -59,6 +61,7 @@ fn main() {
     structs::run_examples();
     control::run_examples();
     modules::run_examples();
+    r#async::run_examples();
     functions::run_examples();
     from_into::run_examples();
     collections::run_examples();
