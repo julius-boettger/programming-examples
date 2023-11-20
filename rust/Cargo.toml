@@ -5,4 +5,5 @@ edition = "2021"
 
 # crates from crates.io to be used as dependencies
 [dependencies]
-futures="0.3" # useful for async/await
+futures = "0.3" # useful for async/await
+rand = "0.8" # random numbers

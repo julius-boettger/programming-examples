@@ -42,6 +42,7 @@ mod r#async; // escape module name because it's also a keyword
 mod functions;
 mod from_into;
 mod collections;
+mod concurrency;
 mod error_handling;
 
 // entry point of the program
@@ -65,5 +66,6 @@ fn main() {
     functions::run_examples();
     from_into::run_examples();
     collections::run_examples();
+    concurrency::run_examples();
     error_handling::run_examples();
 }
