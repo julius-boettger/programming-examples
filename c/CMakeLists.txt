@@ -1,4 +1,8 @@
 # minimal setup for cmake, which is a popular build tool
-cmake_minimum_required(VERSION 3.5.0)
+cmake_minimum_required(VERSION 3.5)
 project(c-examples VERSION 1.0.0)
-add_executable(c-examples main.c)
+# get all .c files as ${SOURCES}
+# may cause problems as compile order is unknown,
+# but is convenient for small projects like this
+file(GLOB SOURCES "*.c")
+add_executable(c-examples ${SOURCES})
