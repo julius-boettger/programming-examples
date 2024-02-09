@@ -14,7 +14,7 @@ void example_functions();
 // entry point of the program
 // returns a "return code" as an integer, usually 0
 int main () {
-    printf("hello world!");
+    printf("hello world!\n"); // doesn't add a new line itself!
 
     // call functions with example code from other files
     example_basics();
