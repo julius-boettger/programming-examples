@@ -2,6 +2,8 @@
 #include <stdbool.h>
 // for size_t datatype  
 #include <stddef.h>
+// for assertions
+#include <assert.h>
 
 void example_basics () {
     ////// primitive datatypes
@@ -36,6 +38,7 @@ void example_basics () {
     int numbers[] = {1, 2, 3};
     // get array size with "sizeof" (number in bytes)
     size_t numbers_length = sizeof(numbers) / sizeof(numbers[0]);
+    assert(numbers_length == 3);
     //// "strings"
     // strings don't really exist, just pointers to char
     // arrays that are "null-terminated" (end with \0).
