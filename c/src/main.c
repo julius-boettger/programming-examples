@@ -1,3 +1,14 @@
+/*
+
+some notes about c
+
+- c has no built-in exception handling. in places where
+  other languages would throw runtime errors, c allows
+  "undefined behavior", which often just means returning
+  an unpredictable value when trying to do something illegal.
+
+*/
+
 // import standard i/o functionality like printf()
 // using the "include" preprocessor directive,
 // effectively copy-and-pasting the content
