@@ -25,6 +25,11 @@ void example_basics () {
     float floaty = 1.2;
     double doubly = 1.234;
 
+    // accessing uninitialized variables is possible,
+    // but causes undefined behavior
+    int x;
+    //printf("%d\n", x);
+
     ////// arrays
     // declare but DON'T initialize an array with 10 elements.
     // each element has an unpredictable "garbage value" before
@@ -39,6 +44,9 @@ void example_basics () {
     // get array size with "sizeof" (number in bytes)
     size_t numbers_length = sizeof(numbers) / sizeof(numbers[0]);
     assert(numbers_length == 3);
+    // array bounds are not checked automatically,
+    // which means this is possible (and causes undefined behavior)
+    int garbage = numbers[-1];
     //// "strings"
     // strings don't really exist, just pointers to char
     // arrays that are "null-terminated" (end with \0).
