@@ -30,6 +30,15 @@ void example_basics () {
     int x;
     //printf("%d\n", x);
 
+    ////// pointers
+    //// void pointers
+    // - can hold memory address of any castable type
+    // - can not be dereferenced
+    // - can be used for generics
+    void* void_pointer = &doubly;
+    // can be casted and then dereferenced!
+    double doubly_copy = *((double*) void_pointer);
+
     ////// arrays
     // declare but DON'T initialize an array with 10 elements.
     // each element has an unpredictable "garbage value" before
