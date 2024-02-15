@@ -26,8 +26,8 @@ void example_structs () {
     struct Person person_copy = person;
 
     // shorthand for declaring a variable of a struct
-    struct IntWrapper { int value; } myIntWrapper = { 2 };
-    assert(myIntWrapper.value == 2);
+    struct IntWrapper { int value; } my_int_wrapper = { 2 };
+    assert(my_int_wrapper.value == 2);
 
     // "structure padding" occurs by default:
     // members are aligned to memory using empty bytes in-between
@@ -37,11 +37,25 @@ void example_structs () {
     struct MemoryEfficient {
         char value1;
         int value2;
-    }  __attribute((packed)) __;
+    }  __attribute((packed));
     // => size is 5 bytes instead of 8
 
+    // you can use typedef to avoid the
+    // word "struct" when using a struct
+    struct EmptyStruct {};
+    typedef struct EmptyStruct EmptyStruct;
+    /*struct*/ EmptyStruct empty_struct;
+    // you can even do it in one line:
+    typedef struct AnotherStruct {} AnotherStruct;
+    AnotherStruct another_struct;
+
     // 1 bit sized member (value can only be 0 or 1)
-    struct Boolean {
+    typedef struct Boolean {
         unsigned int value : 1; // <= size of member in bits (!)
-    } myBoolean = { 1 };
+    } Boolean;
+    Boolean my_boolean = { 0 };
+
+    Boolean* boolean_pointer = &my_boolean;
+    // use "->" instead of "." to access members of struct pointers
+    int boolean_value = boolean_pointer->value;
 }
