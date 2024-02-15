@@ -58,4 +58,12 @@ void example_structs () {
     Boolean* boolean_pointer = &my_boolean;
     // use "->" instead of "." to access members of struct pointers
     int boolean_value = boolean_pointer->value;
+
+    // generic-like behavior with void pointer members
+    typedef struct Container {
+        void* value;
+    } Container;
+    int x = 4;
+    Container container = {&x};
+    int x_copy = * (int*) container.value;
 }
