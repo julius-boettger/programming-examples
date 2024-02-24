@@ -34,6 +34,17 @@ void example_basics () {
     //printf("%d\n", x);
 
     ////// pointers
+    // a pointer has a memory address as its value.
+    // it has an asterisk at the end of its type
+    // (or the beginning of its name).
+    // get the memory address of a variable with "&":
+    int* int_pointer = &x;
+    // "dereference" a pointer with another asterisk to get its value
+    int int_pointer_value = *int_pointer;
+    // a pointer pointing nowhere
+    char* null_pointer = NULL;
+    // a pointer pointing to another pointer (is possible!)
+    int** int_pointer_pointer = &int_pointer;
     //// void pointers
     // - can hold memory address of any castable type
     // - can not be dereferenced
