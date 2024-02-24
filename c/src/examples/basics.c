@@ -81,4 +81,26 @@ void example_basics () {
     // they randomly encounter another \0, which will probably
     // print some stuff you don't want.
     char manual_string[] = {'S','t','r','i','n','g','\0'};
+
+    ////// storage classes / specifiers
+    //// auto (initialized with garbage value)
+    // same as without explicit storage class
+    auto int automatic_sc;
+    //// register (initialized with garbage value)
+    // try to store in cpu register if possible for faster access times.
+    // memory address can not be retreived!
+    register int super_fast;
+    //// static (initialized with 0)
+    // will only be declared/initialized once during the whole
+    // programs runtime! so something like this is possible:
+    for (int i = 0; i < 10; i++) {
+        static int only_initialized_once = 5;
+        only_initialized_once++;
+    } // => only_initialized_once = 15
+    //// extern (initialized with 0)
+    // tell the compiler to look for the value of this
+    // variable somewhere else (see top of file!)
+    // (not really necessary, also compiles without this)
+    extern int global_variable;
+    assert(global_variable == 2);
 }
