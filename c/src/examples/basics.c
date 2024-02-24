@@ -33,6 +33,27 @@ void example_basics () {
     int x;
     //printf("%d\n", x);
 
+    ////// arithmetic and bitwise operators
+    x = 0;
+    //// arithmetic
+    1 + 1; x += 1;
+    1 - 1; x -= 1;
+    1 * 1; x *= 1;
+    1 / 1; x /= 1;
+    1 % 1; x %= 1; // modulo
+    // increment / decrement
+    x++; ++x;
+    x--; --x;
+    //// bitwise
+    // careful: the following binary notation with "0b"
+    //          is not supported by every compiler!
+    assert((0b110 & 0b101) == 0b100); x &= 1; // AND
+    assert((0b110 | 0b101) == 0b111); x |= 1; // OR
+    assert((0b110 ^ 0b101) == 0b011); x ^= 1; // XOR
+    assert(0b1100 << 1 == 0b11000); x <<= 1; // leftshift
+    assert(0b1100 >> 1 ==   0b110); x >>= 1; // rightshift
+    assert(~4 == -5); assert(~~3 == 3); // NOT (first complement)
+
     ////// pointers
     // a pointer has a memory address as its value.
     // it has an asterisk at the end of its type
