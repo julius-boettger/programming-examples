@@ -26,6 +26,9 @@ void example_functions();
 // entry point of the program
 // returns a "return code" as an integer, usually 0
 int main () {
+// can also take arguments
+//int main(int argc, char* argv[]) {
+
     printf("hello world!\n"); // doesn't add a new line itself!
 
     // call functions with example code from other files

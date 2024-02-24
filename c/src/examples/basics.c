@@ -5,6 +5,9 @@
 // for assertions
 #include <assert.h>
 
+// global variables can be declared out here!
+int global_variable = 2;
+
 void example_basics () {
     ////// primitive datatypes
     //// boolean
