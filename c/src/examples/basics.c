@@ -19,14 +19,23 @@ void example_basics () {
     //   "char" is possible, but doesn't change anything
     // - sizes are dependent on system and compiler
     //   and don't all have to be different
-    /*unsigned*/ char character = 'x'; // single quotes!
+    /*unsigned*/ char character = 'x'; // single quotes! unsigned by default
     /*unsigned*/ short shorty = 131;
     /*unsigned*/ int inty = -1612;
     /*unsigned*/ long longy = 10000;
     /*unsigned*/ long long extra_longy = 100000000;
+    // literal notations
+    char hexadecimal = 0x10;    // 16
+    char octal       = 020;     // 16
+    char binary      = 0b10000; // 16
+    // suffixes L for "long" and U for "unsigned" can be added
+    unsigned long long suffixes = 0ULL;
     //// floating point numbers
     float floaty = 1.2;
     double doubly = 1.234;
+    // exponential notation
+    float exponential1 = 10.0e+3; // "+" is optional
+    float exponential2 = 10.0e-3;
 
     // accessing uninitialized variables is possible,
     // but causes undefined behavior
@@ -45,8 +54,6 @@ void example_basics () {
     x++; ++x;
     x--; --x;
     //// bitwise
-    // careful: the following binary notation with "0b"
-    //          is not supported by every compiler!
     assert((0b110 & 0b101) == 0b100); x &= 1; // AND
     assert((0b110 | 0b101) == 0b111); x |= 1; // OR
     assert((0b110 ^ 0b101) == 0b011); x ^= 1; // XOR
