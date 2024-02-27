@@ -36,6 +36,8 @@ void example_basics () {
     // exponential notation
     float exponential1 = 10.0e+3; // "+" is optional
     float exponential2 = 10.0e-3;
+    //// constants
+    const float PI = 3.14;
 
     // accessing uninitialized variables is possible,
     // but causes undefined behavior
@@ -80,6 +82,11 @@ void example_basics () {
     void* void_pointer = &doubly;
     // can be casted and then dereferenced!
     double doubly_copy = *((double*) void_pointer);
+    //// using const with pointers
+    // allowed to change:                   value  pointer
+          int* const const_ptr;          // yes    no
+    const int*       ptr_to_const;       // no     yes
+    const int* const const_ptr_to_const; // no     no
 
     ////// arrays
     // declare but DON'T initialize an array with 10 elements.
