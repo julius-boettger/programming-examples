@@ -21,8 +21,8 @@ void double_in_place (int* x) {
 int sum (int a, int b) {
     return a + b;
 }
-static int hidden_number = 12;
 int* get_number () {
+    static int hidden_number = 12;
     return &hidden_number;
 }
 
