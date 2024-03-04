@@ -71,9 +71,11 @@ void example_basics () {
     int* int_pointer = &x;
     // "dereference" a pointer with another asterisk to get its value
     int int_pointer_value = *int_pointer;
-    // a pointer pointing nowhere
+    // a "null pointer" (pointing nowhere)
     char* null_pointer = NULL;
-    // a pointer pointing to another pointer (is possible!)
+    // a "wild pointer" (pointing to garbage, not initialized)
+    int* wild;
+    // a "double pointer" (is possible!)
     int** int_pointer_pointer = &int_pointer;
     //// void pointers
     // - can hold memory address of any castable type
@@ -87,6 +89,22 @@ void example_basics () {
           int* const const_ptr;          // yes    no
     const int*       ptr_to_const;       // no     yes
     const int* const const_ptr_to_const; // no     no
+
+    ////// pointer arithmetic
+    //// add/subtract integers
+    // loop through array using pointer
+    int array[] = {5, 6, 7, 8};
+    size_t length = sizeof(array) / sizeof(int);
+    int* pointer = &array[0];
+    for (int i = 0; i < length; i++) {
+      //printf("%d\n", *pointer);
+      pointer++; // one unit = sizeof(int)
+    }
+    //// subtract pointers
+    // 1 because &array[1] is the size of 1 int greater than &array[0]
+    assert(&array[1] - &array[0] == 1);
+    //// compare pointers
+    assert(&array[1] > &array[0]);
 
     ////// arrays
     // declare but DON'T initialize an array with 10 elements.
