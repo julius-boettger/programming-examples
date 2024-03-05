@@ -39,6 +39,11 @@ void example_basics () {
     //// constants
     const float PI = 3.14;
 
+    //// typedef
+    // define type aliases at compile time
+    typedef double my_number;
+    my_number my_actual_number = 3.2;
+
     // accessing uninitialized variables is possible,
     // but causes undefined behavior
     int x;
