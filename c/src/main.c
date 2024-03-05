@@ -9,16 +9,9 @@ some notes about c
 
 */
 
-// import local header file using the "include"
-// preprocessor directive, effectively copy-and-pasting
-// the content of the referenced file here.
-// look in there for more info!
-#include "examples.h" // "" => same location as source file
-// include twice to see that that's no problem :)
+// see what this does in preprocessor.c!
 #include "examples.h"
-
-// import standard i/o functionality like printf()
-#include <stdio.h> // <> => located in system/default directory
+#include <stdio.h>
 
 // entry point of the program
 // returns a "return code" as an integer, usually 0
@@ -35,6 +28,7 @@ int main () {
     example_structs();
     example_control();
     example_functions();
+    example_preprocessor();
 
     // indicate successful program execution and planned exit
     return 0;

@@ -6,10 +6,10 @@
 - its contents are typically wrapped with conditional
   preprocessor directives to avoid problems when
   including the same header file multiple times.
+  see preprocessor.c for more.
 
 */
 
-// "if not defined" with name of this file
 #ifndef examples 
 #define examples
 
@@ -23,5 +23,6 @@ void example_unions();
 void example_structs();
 void example_control();
 void example_functions();
+void example_preprocessor();
 
 #endif
