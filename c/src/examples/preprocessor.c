@@ -33,6 +33,20 @@ void example_preprocessor() {
     // can also define simple functions with arguments
     #define ADD(a, b) (a + b)
     assert(ADD(1, 4) == 5);
+    // "#" is the "stringizing operator"
+    #define VAR_NAME(var) #var
+    int my_var = 4;
+    assert("my_var" == VAR_NAME(my_var));
+    // "##" is the "token-pasting operator"
+    #define concat(a, b) a##b
+    assert(concat(1, 2) == 12);
+    // macro definition can be multiple lines long with backslashes
+    #define THREE_PRINTS \
+        printf("1\n"); \
+        printf("2\n"); \
+        printf("3\n");
+    // use the macro
+    //THREE_PRINTS
 
     //// conditional compilation
     // only compile if macro is defined
@@ -51,6 +65,7 @@ void example_preprocessor() {
     #elif 3 == 2
         printf("This... feels wrong\n");
     #else
-        printf("How did we get here?\n");
+        // show error message during preprocessing
+        #error how did we get here?
     #endif
 }
