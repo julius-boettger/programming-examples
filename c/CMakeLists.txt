@@ -6,4 +6,4 @@ project(c-examples VERSION 1.0.0)
 # but is convenient for small projects like this
 file(GLOB SOURCES "src/examples/*.c")
 # compile main.c and other found sources to an executable
-add_executable(c-examples src/main.c ${SOURCES})
+add_executable(c-examples ${SOURCES} src/main.c)
