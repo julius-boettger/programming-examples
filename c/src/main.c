@@ -9,21 +9,16 @@ some notes about c
 
 */
 
-// import standard i/o functionality like printf()
-// using the "include" preprocessor directive,
-// effectively copy-and-pasting the content
-// of the referenced file here
-#include <stdio.h>
+// import local header file using the "include"
+// preprocessor directive, effectively copy-and-pasting
+// the content of the referenced file here.
+// look in there for more info!
+#include "examples.h" // "" => same location as source file
+// include twice to see that that's no problem :)
+#include "examples.h"
 
-// function signature declarations to tell the compiler
-// to search for implementations of these functions in
-// other files and use them here if they are called
-void example_enums();
-void example_basics();
-void example_unions();
-void example_structs();
-void example_control();
-void example_functions();
+// import standard i/o functionality like printf()
+#include <stdio.h> // <> => located in system/default directory
 
 // entry point of the program
 // returns a "return code" as an integer, usually 0

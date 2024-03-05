@@ -40,6 +40,15 @@ void* useless_wrapper (void* fn()) {
     return fn();
 }
 
+// functions can be declared without being defined,
+// resulting in a "function prototype":
+void defined_later();
+// the compiler will then search for a definition
+// somewhere else, and could find one like this:
+void defined_later() {
+    // do something
+}
+
 void example_functions () {
     // call the funtions declared above
     do_nothing();
