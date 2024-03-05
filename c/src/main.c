@@ -19,6 +19,7 @@ some notes about c
 // to search for implementations of these functions in
 // other files and use them here if they are called
 void example_basics();
+void example_unions();
 void example_structs();
 void example_control();
 void example_functions();
@@ -33,6 +34,7 @@ int main () {
 
     // call functions with example code from other files
     example_basics();
+    example_unions();
     example_structs();
     example_control();
     example_functions();
