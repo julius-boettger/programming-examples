@@ -1,10 +1,13 @@
 #include <assert.h>
 
-// the simplest function
+// the simplest function (globally accessible by default)
 void do_nothing () {}
 // can also be written like this,
 // with "void" standing for "no arguments"
 void do_nothing_fancy (void) {}
+// static functions are not globally accessible,
+// but only accessible in the file they were declared in
+static void only_in_this_file() {}
 
 // a function with an argument (pass-by-value)
 int get_double (int x) {
