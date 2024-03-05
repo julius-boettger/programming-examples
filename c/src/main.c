@@ -18,6 +18,7 @@ some notes about c
 // function signature declarations to tell the compiler
 // to search for implementations of these functions in
 // other files and use them here if they are called
+void example_enums();
 void example_basics();
 void example_unions();
 void example_structs();
@@ -33,6 +34,7 @@ int main () {
     printf("hello world!\n"); // doesn't add a new line itself!
 
     // call functions with example code from other files
+    example_enums();
     example_basics();
     example_unions();
     example_structs();
