@@ -29,15 +29,15 @@ void example_basics () {
     char octal       = 020;     // 16
     char binary      = 0b10000; // 16
     // suffixes L for "long" and U for "unsigned" can be added
-    unsigned long long suffixes = 0ULL;
+    unsigned long long suffixes = 0ull;
     //// floating point numbers
-    float floaty = 1.2;
+    float floaty = 1.2f; // F suffix is optional, but good practice
     double doubly = 1.234;
     // exponential notation
-    float exponential1 = 10.0e+3; // "+" is optional
-    float exponential2 = 10.0e-3;
+    float exponential1 = 10.0e+3f; // "+" is optional
+    float exponential2 = 10.0e-3f;
     //// constants
-    const float PI = 3.14;
+    const float PI = 3.14f;
 
     //// typedef
     // define type aliases at compile time
