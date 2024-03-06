@@ -140,6 +140,15 @@ void example_basics () {
     // print some stuff you don't want.
     char manual_string[] = {'S','t','r','i','n','g','\0'};
 
+    ////// _Generic
+    // return different expressions based on the type of a value
+    char type_name[] = _Generic(3.0,
+        int: "int",
+        float: "float",
+        // ...
+        default: "idk"
+    );
+
     ////// storage classes / specifiers
     //// auto (initialized with garbage value)
     // same as without explicit storage class
