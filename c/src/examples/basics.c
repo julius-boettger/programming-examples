@@ -138,7 +138,9 @@ void example_basics () {
     // without it, functions like printf() read the memory until
     // they randomly encounter another \0, which will probably
     // print some stuff you don't want.
-    char manual_string[] = {'S','t','r','i','n','g','\0'};
+    char manual_string1[] = {'S','t','r','i','n','g','\0'};
+    // ascii value of \0 is 0
+    char manual_string2[] = {'S','t','r','i','n','g',  0 };
 
     ////// _Generic
     // return different expressions based on the type of a value
