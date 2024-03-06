@@ -172,4 +172,18 @@ void example_basics () {
     // (not really necessary, also compiles without this)
     extern int global_variable;
     assert(global_variable == 2);
+
+    ////// volatile
+    // variables marked as volatile are not optimized by
+    // the compiler, meaning that their values aren't
+    // cached but truly read again for every access.
+    // useful for:
+    // - variables whose value can be manipulated
+    //   externally, e.g. by an I/O device
+    // - variables who are accessed by multiple
+    //   threads without other synchronization
+    volatile int io_status = 0;
+    // also used with pointers, meaning that the pointed-to value
+    // is volatile, not the actual memory address the pointer holds
+    volatile int* io_pointer = &io_status;
 }
