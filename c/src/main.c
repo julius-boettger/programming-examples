@@ -1,7 +1,8 @@
 /*
 
-some notes about c
+some notes
 
+- see instructions on how to build/run in meson.build
 - c has no built-in exception handling. in places where
   other languages would throw runtime errors, c allows
   "undefined behavior", which often just means returning
