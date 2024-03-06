@@ -15,6 +15,7 @@
 // include files located in the system/default directory with <>
 #include <stdio.h>
 #include <assert.h>
+#include <stdbool.h>
 
 //// #pragma directive
 // enable/disable compiler-specific features,
@@ -68,4 +69,17 @@ void example_preprocessor() {
         // show error message during preprocessing
         #error how did we get here?
     #endif
+
+    //// branch prediction macros
+    // these macros are from the linux kernel! they use __builtin_expect
+    // as a compiler hint for possible optimization if a condition
+    // is known to be true/false more than the other.
+    #define   likely(x) __builtin_expect(!!(x),  true)
+    #define unlikely(x) __builtin_expect(!!(x), false) 
+    // use like this when you know if a condition is likely to be true/false
+    if (likely(0 == 0)) {
+        // something likely
+    } else {
+        // something unlikely
+    }
 }
