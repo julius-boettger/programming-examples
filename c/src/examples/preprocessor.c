@@ -8,10 +8,10 @@
 //// file inclusion
 // copy-and-paste the contents of the mentioned file here
 // the "" signify a relative file location to the current source file
-#include "../examples.h"
+#include "../include/examples.h"
 // include twice to see that that's no problem :)
 // look in examples.h to find out more!
-#include "../examples.h"
+#include "../include/examples.h"
 // include files located in the system/default directory with <>
 #include <stdio.h>
 #include <assert.h>

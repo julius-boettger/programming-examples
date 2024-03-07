@@ -11,7 +11,7 @@ some notes
 */
 
 // see what this does in preprocessor.c!
-#include "examples.h"
+#include "include/examples.h"
 #include <stdio.h>
 
 // entry point of the program
