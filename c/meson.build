@@ -3,7 +3,7 @@
 # - generate build files (only once): meson setup build
 # - build: meson compile -C build
 # - run: ./build/c-examples
-project('c-examples', 'C', version: '0.55.0')
+project('c-examples', 'C')
 executable('c-examples', sources: [
     # all source files that should be compiled need to be specified manually
     # order usually doesn't matter, but can in rare cases
