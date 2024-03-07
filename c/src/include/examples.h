@@ -7,6 +7,7 @@
   preprocessor directives to avoid problems when
   including the same header file multiple times.
   see preprocessor.c for more.
+- header files usually reside in an "include" directory
 
 */
 
