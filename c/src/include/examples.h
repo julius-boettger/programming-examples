@@ -11,8 +11,8 @@
 
 */
 
-#ifndef examples 
-#define examples
+#ifndef EXAMPLES_H
+#define EXAMPLES_H
 
 // function prototypes to tell the compiler to
 // search for definitions of these functions in
