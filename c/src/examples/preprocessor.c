@@ -15,6 +15,7 @@
 // include files located in the system/default directory with <>
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
 #include <stdbool.h>
 
 //// #pragma directive
@@ -37,7 +38,7 @@ void example_preprocessor() {
     // "#" is the "stringizing operator"
     #define VAR_NAME(var) #var
     int my_var = 4;
-    assert("my_var" == VAR_NAME(my_var));
+    assert(strcmp("my_var", VAR_NAME(my_var)) == 0); // compare strings
     // "##" is the "token-pasting operator"
     #define concat(a, b) a##b
     assert(concat(1, 2) == 12);
