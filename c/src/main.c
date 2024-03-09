@@ -30,6 +30,7 @@ int main () {
     example_control();
     example_functions();
     example_preprocessor();
+    example_mem_management();
 
     // indicate successful program execution and planned exit
     return 0;

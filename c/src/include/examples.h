@@ -25,5 +25,6 @@ void example_structs();
 void example_control();
 void example_functions();
 void example_preprocessor();
+void example_mem_management();
 
 #endif
