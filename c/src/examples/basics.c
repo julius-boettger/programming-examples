@@ -173,7 +173,7 @@ void example_basics () {
     // tell the compiler to look for the value of this
     // variable somewhere else (see top of file!)
     // (not really necessary, also compiles without this)
-    extern int global_variable;
+    extern const int global_variable;
     assert(global_variable == 2);
 
     ////// volatile
