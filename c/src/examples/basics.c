@@ -6,7 +6,7 @@
 #include <assert.h>
 
 // global variables can be declared out here!
-int global_variable = 2;
+const int global_variable = 2;
 
 void example_basics () {
     ////// primitive datatypes
@@ -166,6 +166,9 @@ void example_basics () {
         static int only_initialized_once = 5;
         only_initialized_once++;
     } // => only_initialized_once = 15
+    // global or static variables reside in the
+    // "initialized data segment", a special segment of
+    // the processes virtual memory for global variables.
     //// extern (initialized with 0)
     // tell the compiler to look for the value of this
     // variable somewhere else (see top of file!)
