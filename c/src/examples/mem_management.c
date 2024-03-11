@@ -9,6 +9,10 @@ void example_mem_management () {
     // to store data on the heap: dynamically allocate
     // memory for it (specifying the amount of bytes)
     int* on_heap = (int*) malloc(sizeof(int));
+    // malloc/calloc/realloc can return NULL if allocation failed
+    if (on_heap == NULL) {
+        // do something
+    }
     *on_heap = 1;
     // dynamically allocated memory needs to be freed manually!
     free(on_heap);
