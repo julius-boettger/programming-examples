@@ -1,6 +1,8 @@
 #include <assert.h>
 
-// the simplest function (globally accessible by default)
+// the simplest function (globally accessible by default). needs
+// to have a unique identifier to not conflict with functions
+// defined elsewhere! (something like namespaces doesn't exist)
 void do_nothing () {}
 // can also be written like this,
 // with "void" standing for "no arguments"
@@ -19,6 +21,11 @@ int get_double (int x) {
 void double_in_place (int* x) {
     *x *= 2;
 }
+
+// function overloading like this is not possible!
+//void double_in_place (float* x) {
+//    *x *= 2;
+//}
 
 // for later examples
 int sum (int a, int b) {
@@ -43,8 +50,8 @@ void* useless_wrapper (void* fn()) {
     return fn();
 }
 
-// functions can be declared without being defined,
-// resulting in a "function prototype":
+// all functions SHOULD be declared like this before
+// being defined, resulting in a "function prototype":
 void defined_later();
 // the compiler will then search for a definition
 // somewhere else, and could find one like this:
