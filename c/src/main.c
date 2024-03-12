@@ -29,6 +29,7 @@ int main () {
     example_structs();
     example_control();
     example_functions();
+    example_dyn_array();
     example_preprocessor();
     example_mem_management();
 

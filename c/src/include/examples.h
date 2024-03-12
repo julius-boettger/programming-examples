@@ -24,6 +24,7 @@ void example_unions();
 void example_structs();
 void example_control();
 void example_functions();
+void example_dyn_array();
 void example_preprocessor();
 void example_mem_management();
 
