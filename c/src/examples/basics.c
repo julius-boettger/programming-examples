@@ -4,6 +4,8 @@
 #include <stddef.h>
 // for assertions
 #include <assert.h>
+// for better int datatypes like uint8_t
+#include <stdint.h>
 
 // global variables can be declared out here!
 const int global_variable = 2;
@@ -36,6 +38,7 @@ void example_basics () {
     // exponential notation
     float exponential1 = 10.0e+3f; // "+" is optional
     float exponential2 = 10.0e-3f;
+
     //// constants
     const float PI = 3.14f;
 
@@ -110,6 +113,25 @@ void example_basics () {
     assert(&array[1] - &array[0] == 1);
     //// compare pointers
     assert(&array[1] > &array[0]);
+
+    ////// stdint.h
+    // stdint.h contains new data types for integers
+    // which have fixed, platform-independent sizes.
+    // all the following types are available in sizes
+    // 8, 16, 32 and 64 (bit).
+    // the prefix "u" for "unsigned" is also available.
+    int8_t int8;
+    // largest type the system supports
+    intmax_t intmax;
+    // smallest type the system supports that is at least 8 bit
+    int_least8_t int_least8;
+    // fastest type the system supports that is at least 8 bit
+    // (might not be smallest)
+    int_fast8_t int_fast8;
+    // useful for performing bitwise operations on a pointer
+    // by treating its contained memory address like an integer,
+    // e.g. for pointer comparison
+    uintptr_t intptr = (uintptr_t) &binary;
 
     ////// arrays
     // declare but DON'T initialize an array with 10 elements.
