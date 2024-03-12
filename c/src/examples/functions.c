@@ -9,7 +9,7 @@ void do_nothing () {}
 void do_nothing_fancy (void) {}
 // static functions are not globally accessible,
 // but only accessible in the file they were declared in
-static void only_in_this_file() {}
+static void only_in_this_file () {}
 
 // a function with an argument (pass-by-value)
 int get_double (int x) {
@@ -50,13 +50,22 @@ void* useless_wrapper (void* fn()) {
     return fn();
 }
 
-// all functions SHOULD be declared like this before
-// being defined, resulting in a "function prototype":
-void defined_later();
+// all functions that are used in multiple files
+// should be declared like this before being defined,
+// resulting in a "function prototype":
+void defined_later ();
 // the compiler will then search for a definition
 // somewhere else, and could find one like this:
-void defined_later() {
+void defined_later () {
     // do something
+}
+
+// order of functions in code is important!
+// the following only works because a declaration
+// for defined_later() was provided before the
+// definition of this function.
+void call_earlier_defined () {
+    defined_later();
 }
 
 void example_functions () {
