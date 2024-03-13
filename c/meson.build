@@ -15,7 +15,11 @@ executable('c-examples', sources: [
     'src/examples/control.c',
     'src/examples/functions.c',
     'src/examples/dyn_array.c',
+    'src/examples/unit_test.c',
     'src/examples/concurrency.c',
     'src/examples/preprocessor.c',
     'src/examples/mem_management.c',
+], dependencies: [
+    # optional: depend on Check (a unit testing tool)
+    dependency('check', required: false)
 ])
