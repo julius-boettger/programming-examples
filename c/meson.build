@@ -15,6 +15,7 @@ executable('c-examples', sources: [
     'src/examples/control.c',
     'src/examples/functions.c',
     'src/examples/dyn_array.c',
+    'src/examples/concurrency.c',
     'src/examples/preprocessor.c',
     'src/examples/mem_management.c',
 ])
