@@ -25,7 +25,6 @@ void example_structs();
 void example_control();
 void example_functions();
 void example_dyn_array();
-void example_unit_test();
 void example_concurrency();
 void example_preprocessor();
 void example_mem_management();

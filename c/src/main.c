@@ -30,7 +30,6 @@ int main () {
     example_control();
     example_functions();
     example_dyn_array();
-    example_unit_test();
     example_concurrency();
     example_preprocessor();
     example_mem_management();
