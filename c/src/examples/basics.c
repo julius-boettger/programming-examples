@@ -47,9 +47,11 @@ void example_basics () {
     typedef double my_number;
     my_number my_actual_number = 3.2;
 
+    //// other stuff
+    // you can declare multiple variables of the same type like this
+    int x, y, z;
     // accessing uninitialized variables is possible,
     // but causes undefined behavior
-    int x;
     //printf("%d\n", x);
 
     ////// arithmetic and bitwise operators
