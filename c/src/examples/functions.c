@@ -50,22 +50,23 @@ void* useless_wrapper (void* fn()) {
     return fn();
 }
 
-// all functions that are used in multiple files
-// should be declared like this before being defined,
-// resulting in a "function prototype":
-void defined_later ();
-// the compiler will then search for a definition
+// to call a function that was not defined in the
+// current source file it SHOULD be declared
+// (without being defined, like below).
+// this is also called a "function prototype":
+void defined_elsewhere ();
+// the linker will then search for a definition
 // somewhere else, and could find one like this:
-void defined_later () {
+void defined_elsewhere () {
     // do something
 }
 
 // order of functions in code is important!
 // the following only works because a declaration
-// for defined_later() was provided before the
+// for defined_elsewhere() was provided before the
 // definition of this function.
 void call_earlier_defined () {
-    defined_later();
+    defined_elsewhere();
 }
 
 void example_functions () {
