@@ -6,12 +6,16 @@
 */
 
 //// file inclusion
-// copy-and-paste the contents of the mentioned file here
-// the "" signify a relative file location to the current source file
-#include "../include/examples.h"
+// copy-and-paste the contents of the mentioned file here.
+// the "" signify a relative file location to the current source file.
+// to avoid reflecting directory structure in code "include_directories"
+// is set to "src/include" in meson.build, so include paths will be
+// relative to that directory. this means that we can do the following,
+// independent of the location of this file:
+#include "examples.h"
 // include twice to see that that's no problem :)
 // look in examples.h to find out more!
-#include "../include/examples.h"
+#include "examples.h"
 // include files located in the system/default directory with <>
 #include <stdio.h>
 #include <assert.h>
