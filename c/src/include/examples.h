@@ -3,14 +3,15 @@
 - this is a "header file" (.h). it is used for
   function prototypes, structs, enums, constants, global variables, ...
   to avoid redundancy when sharing code between source files (.c).
-- its contents are typically wrapped with conditional
-  preprocessor directives to avoid problems when
-  including the same header file multiple times.
+- its contents are typically wrapped in a "header guard",
+  meaning conditional preprocessor directives to avoid
+  problems when including the same header file multiple times.
   see preprocessor.c for more.
 - header files usually reside in an "include" directory
 
 */
 
+// usually file name with underscores and in caps
 #ifndef EXAMPLES_H
 #define EXAMPLES_H
 
