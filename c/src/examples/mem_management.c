@@ -24,14 +24,18 @@ void example_mem_management () {
     *malloc_int = 3;
     free(malloc_int);
 
-    //// calloc (contiguous allocation)
-    // dyn. allocate the specified number of blocks
-    // and initialize them with a default value.
-    // useful for arrays!
+    //// calloc (clear allocation)
+    // like malloc, but allocates multiple blocks of given size
+    // and initializes them with a default value (usually 0).
+    // useful for when you want to initialize your data with 0 anyway.
     int calloc_len = 5;
     int* calloc_array = (int*) calloc(calloc_len, sizeof(int));
     calloc_array[3] = 12;
+    assert(calloc_array[0] ==  0);
+    assert(calloc_array[1] ==  0);
+    assert(calloc_array[2] ==  0);
     assert(calloc_array[3] == 12);
+    assert(calloc_array[4] ==  0);
     free(calloc_array);
 
     //// realloc (re-allocation)
