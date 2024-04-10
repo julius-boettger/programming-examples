@@ -2,6 +2,14 @@
 #include <stdio.h>
 
 void example_control () {
+    //// notes about conditions
+    // conditions are only false if their decimal value is 0
+    // meaning everything else is "true"!
+    if ( 0) { /* will NOT be executed. */ }
+    if (-1) { /* will     be executed! */ }
+    if ( 1) { /* will     be executed! */ }
+    if (32) { /* will     be executed! */ }
+
     //// if / else statement
     if (true && true || !false) {
         // run some code
@@ -10,6 +18,7 @@ void example_control () {
     } else {
         // even more
     }
+
     //// ternary operator
     int result = true ? 1 : 0;
 
