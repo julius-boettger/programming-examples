@@ -11,5 +11,12 @@ namespace basics {
         int   copy_list_init = {4}; // less common/preferred than the other two
         // initializing multiple variables of the same type like this is possible!
         int x{1}, y(2), z = 3;
+
+        //// new data types!
+        bool boolean = true;
+        // larger char, but size is platform-dependent
+        wchar_t wchar = 0;
+        // larger chars with guaranteed sizes
+        char16_t char16; char32_t char32;
     }
 }
