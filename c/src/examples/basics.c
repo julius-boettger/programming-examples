@@ -59,9 +59,13 @@ void example_basics () {
     //// other stuff
     // you can declare multiple variables of the same type like this
     int x, y, z;
+    // assigning the same value to multiple variables is possible like this
+    // because x = y first assigns y to x and then returns x, which is chainable
+    x = y = 100;
+    assert(x == 100 && y == 100);
     // accessing uninitialized variables is possible,
     // but causes undefined behavior
-    //printf("%d\n", x);
+    //printf("%d\n", z);
 
     ////// arithmetic and bitwise operators
     x = 0;
