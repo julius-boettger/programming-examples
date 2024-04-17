@@ -10,6 +10,15 @@
 // global variables can be declared out here!
 const int global_variable = 2;
 
+// don't worry about this, we just need it for later
+int pow (int base, int exponent) {
+    int result = 1;
+    for (int i = 0; i < exponent; i++) {
+        result *= base;
+    }
+    return result;
+}
+
 void example_basics () {
     ////// primitive datatypes
     //// boolean
@@ -69,9 +78,15 @@ void example_basics () {
     assert((0b110 & 0b101) == 0b100); x &= 1; // AND
     assert((0b110 | 0b101) == 0b111); x |= 1; // OR
     assert((0b110 ^ 0b101) == 0b011); x ^= 1; // XOR
-    assert(0b1100 << 1 == 0b11000); x <<= 1; // leftshift
-    assert(0b1100 >> 1 ==   0b110); x >>= 1; // rightshift
     assert(~4 == -5); assert(~~3 == 3); // NOT (first complement)
+    // leftshift: fill with 0, LSB first
+    assert(0b1100 << 1 == 0b11000); x <<= 1;
+    // interpretation: multiplication with power of two
+    x = 3; y = 2; assert(x << y == x * pow(2, y));
+    // rightshift: fill with MSB (here: 0), MSB first
+    assert(0b1100 >> 1 == 0b110); x >>= 1;
+    // interpretation: integer division with power of two
+    x = 32; y = 3; assert(x >> y == x / pow(2, y));
 
     ////// pointers
     // a pointer has a memory address as its value.
