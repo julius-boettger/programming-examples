@@ -26,6 +26,7 @@ void example_basics () {
     bool boolean = true;
     bool illegal_bool = 2; // possible! but don't.
     //// integers
+    // - "signed" by default
     // - adding "int" after something that is not "int" or
     //   "char" is possible, but doesn't change anything
     // - sizes are dependent on system and compiler
@@ -44,6 +45,7 @@ void example_basics () {
     //// floating point numbers
     float floaty = 1.2f; // F suffix is optional, but good practice
     double doubly = 1.234;
+    long double extra_doubly = 1.23456;
     // exponential notation
     float exponential1 = 10.0e+3f; // "+" is optional
     float exponential2 = 10.0e-3f;
