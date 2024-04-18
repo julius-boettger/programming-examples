@@ -1,3 +1,6 @@
+// better integers like std::uint8_t
+#include <cstdint>
+
 namespace basics {
     void run_examples() {
         //// types of initialization
@@ -18,5 +21,9 @@ namespace basics {
         wchar_t wchar = 0;
         // larger chars with guaranteed sizes
         char16_t char16; char32_t char32;
+        // better integer types, similar to C
+        std::uint8_t uint8;
+        std::uint_fast8_t fast_uint8;
+        std::uint_least8_t least_uint8;
     }
 }
