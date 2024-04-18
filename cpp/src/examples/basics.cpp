@@ -9,16 +9,16 @@ namespace basics {
         int    copy_init = 1; // a.k.a. "c-style", copy from right to left
         // list/uniform/brace initialization methods
         // are usually preferred!
-        int       value_init{ };    // best practice, uses default value like 0
-        int direct_list_init{3};    // best practice!
-        int   copy_list_init = {4}; // less common/preferred than the other two
+        int       value_init {};      // best practice to use default value like 0
+        int direct_list_init { 3 };   // best practice to use given value
+        int   copy_list_init = { 4 }; // less common/preferred than the other two
         // initializing multiple variables of the same type like this is possible!
         int x{1}, y(2), z = 3;
 
         //// new data types!
-        bool boolean = true;
+        bool boolean { true };
         // larger, implementation-defined char, deprecated
-        wchar_t wchar = 0;
+        wchar_t wchar { 0 };
         // larger chars with guaranteed sizes
         char16_t char16; char32_t char32;
         // better integer types, similar to C
