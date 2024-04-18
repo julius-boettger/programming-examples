@@ -34,5 +34,10 @@ namespace basics {
         // reliable built-in binary notation
         // also: ' as digit separator!
         unsigned char binary { 0b1101'0010 };
+
+        // better constants with constant expressions
+        // have to be evaluable at compile time!
+        // best practice wherever possible
+        constexpr long constant { 10 * 245 - 300 };
     }
 }
