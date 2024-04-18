@@ -8,6 +8,8 @@ executable(
         '-pedantic-errors',
         # more warnings
         '-Wall', '-Weffc++', '-Wextra', '-Wconversion', '-Wsign-conversion',
+        # ignore some warnings
+        '-Wno-unused-variable'
         # treat warnings as errors
         #'-Werror',
     ], sources: [
