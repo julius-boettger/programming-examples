@@ -15,5 +15,6 @@ executable(
     ], sources: [
         'src/main.cpp',
         'src/examples/basics.cpp',
+        'src/examples/functions.cpp',
     ]
 )

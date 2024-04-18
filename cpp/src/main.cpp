@@ -22,6 +22,7 @@ int main() {
     std::cout << "Hello World :)";
 
     basics::run_examples();
+    functions::run_examples();
 
     return 0;
 }
