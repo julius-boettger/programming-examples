@@ -26,5 +26,10 @@ namespace basics {
         std::uint8_t uint8;
         std::uint_fast8_t fast_uint8;
         std::uint_least8_t least_uint8;
+
+        //// explicit casting
+        // preferred way: static_cast
+        // will produce UB if value doesn't fit in new type
+        int int_from_float { static_cast<int>(5.432f) };
     }
 }
