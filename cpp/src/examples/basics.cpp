@@ -17,7 +17,7 @@ namespace basics {
 
         //// new data types!
         bool boolean = true;
-        // larger char, but size is platform-dependent
+        // larger, implementation-defined char, deprecated
         wchar_t wchar = 0;
         // larger chars with guaranteed sizes
         char16_t char16; char32_t char32;
