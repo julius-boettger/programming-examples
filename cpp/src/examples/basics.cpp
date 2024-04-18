@@ -32,6 +32,7 @@ namespace basics {
         int int_from_float { static_cast<int>(5.432f) };
 
         // reliable built-in binary notation
-        char binary { 0b1101 };
+        // also: ' as digit separator!
+        unsigned char binary { 0b1101'0010 };
     }
 }
