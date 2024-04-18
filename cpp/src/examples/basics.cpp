@@ -22,6 +22,7 @@ namespace basics {
         // larger chars with guaranteed sizes
         char16_t char16; char32_t char32;
         // better integer types, similar to C
+        // 8 bit variants are usually treated chars (e.g. when printing)
         std::uint8_t uint8;
         std::uint_fast8_t fast_uint8;
         std::uint_least8_t least_uint8;
