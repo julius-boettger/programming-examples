@@ -49,15 +49,12 @@ void example_basics () {
     float exponential1 = 10.0e+3f; // "+" is optional
     float exponential2 = 10.0e-3f;
 
-    //// constants
+    //// other stuff
+    // constants
     const float PI = 3.14f;
-
-    //// typedef
-    // define type aliases at compile time
+    // typedef: define type aliases at compile time
     typedef double my_number;
     my_number my_actual_number = 3.2;
-
-    //// other stuff
     // you can declare/initialize multiple variables of the same type
     // but this is generally considered bad practice
     int x, y, z;
@@ -134,6 +131,13 @@ void example_basics () {
           int* const const_ptr;          // yes    no
     const int*       ptr_to_const;       // no     yes
     const int* const const_ptr_to_const; // no     no
+    //// restrict
+    // promise the compiler that a pointer is the only way to
+    // access the object it points to in this scope (to enable
+    // some optimizations). accessing/modifying the pointed-to
+    // object directly is still allowed though!
+    int may_be_pointed_to = 0;
+    int *restrict restricted = &may_be_pointed_to;
 
     ////// pointer arithmetic
     //// add/subtract integers
