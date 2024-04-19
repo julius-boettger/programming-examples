@@ -23,6 +23,7 @@ int main() {
 
     basics::run_examples();
     functions::run_examples();
+    strings::run_examples();
 
     return 0;
 }

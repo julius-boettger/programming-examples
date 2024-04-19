@@ -17,5 +17,6 @@ executable(
         'src/main.cpp',
         'src/examples/basics.cpp',
         'src/examples/functions.cpp',
+        'src/examples/strings.cpp',
     ]
 )

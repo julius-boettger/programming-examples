@@ -11,5 +11,6 @@ inline int defined_in_header () {
 // namespaces need to be considered here!
 namespace basics    { void run_examples(); }
 namespace functions { void run_examples(); }
+namespace strings   { void run_examples(); }
 
 #endif
