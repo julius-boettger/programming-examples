@@ -70,6 +70,11 @@ void example_basics () {
     // which returns the last operand. bad practice!
     int comma_evaluated = ("hello", true, 2+2, 10);
     assert(comma_evaluated == 10);
+    // nested block are possible
+    {
+        // only accessible in this block/scope!
+        int some_variable;
+    }
     // accessing uninitialized variables is possible,
     // but causes undefined behavior
     //printf("%d\n", z);
