@@ -12,15 +12,15 @@ namespace basics {
         int       value_init {};      // best practice to use default value like 0
         int direct_list_init { 3 };   // best practice to use given value
         int   copy_list_init = { 4 }; // less common/preferred than the other two
-        // initializing multiple variables of the same type like this is possible!
-        int x{1}, y(2), z = 3;
 
         //// new data types!
         bool boolean { true };
         // larger, implementation-defined char, deprecated
-        wchar_t wchar { 0 };
+        wchar_t wchar;
         // chars with guaranteed sizes (preferred!)
-        char8_t char8; char16_t char16; char32_t char32;
+        char8_t char8;
+        char16_t char16;
+        char32_t char32;
         // better integer types, similar to C
         // 8 bit variants are usually treated chars (e.g. when printing)
         std::uint8_t uint8;
