@@ -1,9 +1,10 @@
-project('cpp-examples', 'CPP')
+project('cpp-examples', 'cpp')
 executable(
     'cpp-examples',
     include_directories: 'src/include',
     # g++ compiler arguments:
     cpp_args: [
+        '-std=c++23',
         # throw errors when using compiler extensions (compiler-specific behavior)
         '-pedantic-errors',
         # more warnings
