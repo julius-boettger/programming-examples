@@ -39,5 +39,9 @@ namespace basics {
         // have to be evaluable at compile time!
         // best practice wherever possible
         constexpr long constant { 10 * 245 - 300 };
+
+        // many operators have alternative, equivalent keywords
+        // https://en.cppreference.com/w/cpp/language/operator_alternative
+        bool condition { (!true && false) || (false and (not true or false)) };
     }
 }
