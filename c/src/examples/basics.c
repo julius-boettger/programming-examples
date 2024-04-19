@@ -66,6 +66,10 @@ void example_basics () {
     // because x = y first assigns y to x and then returns x, which is chainable
     x = y = 100;
     assert(x == 100 && y == 100);
+    // you can evaluate multiple expressions using the comma operator,
+    // which returns the last operand. bad practice!
+    int comma_evaluated = ("hello", true, 2+2, 10);
+    assert(comma_evaluated == 10);
     // accessing uninitialized variables is possible,
     // but causes undefined behavior
     //printf("%d\n", z);
