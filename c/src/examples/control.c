@@ -11,7 +11,7 @@ void example_control () {
     if (32) { /* will     be executed! */ }
 
     //// if / else statement
-    if (true && true || !false) {
+    if (true && (true || !false)) {
         // run some code
     } else if (false) {
         // more
@@ -64,4 +64,5 @@ void example_control () {
     // label
 gotolabel:
     // do something
+    int four = 2 + 2;
 }

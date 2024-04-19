@@ -9,8 +9,8 @@
 // typically have this signature. they return void* and
 // also accept a single void* argument.
 static void* will_be_run_as_a_thread (void* arg) {
-    // just wait a little bit :)
-    sleep(0.1);
+    // wait... or don't?
+    sleep(0);
     return NULL;
 }
 

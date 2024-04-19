@@ -42,11 +42,11 @@ void example_structs () {
 
     // you can use typedef to avoid the
     // word "struct" when using a struct
-    struct EmptyStruct {};
-    typedef struct EmptyStruct EmptyStruct;
-    /*struct*/ EmptyStruct empty_struct;
+    struct SomeStruct { char member; };
+    typedef struct SomeStruct SomeStruct;
+    /*struct*/ SomeStruct some_struct;
     // you can even do it in one line:
-    typedef struct AnotherStruct {} AnotherStruct;
+    typedef struct { short member; } AnotherStruct;
     AnotherStruct another_struct;
 
     // 1 bit sized member (value can only be 0 or 1)

@@ -28,7 +28,7 @@ void example_mem_management () {
     // like malloc, but allocates multiple blocks of given size
     // and initializes them with a default value (usually 0).
     // useful for when you want to initialize your data with 0 anyway.
-    int calloc_len = 5;
+    unsigned int calloc_len = 5;
     int* calloc_array = (int*) calloc(calloc_len, sizeof(int));
     calloc_array[3] = 12;
     assert(calloc_array[0] ==  0);

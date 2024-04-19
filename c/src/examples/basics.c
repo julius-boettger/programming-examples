@@ -11,7 +11,7 @@
 const int global_variable = 2;
 
 // don't worry about this, we just need it for later
-int pow (int base, int exponent) {
+int int_pow (int base, int exponent) {
     int result = 1;
     for (int i = 0; i < exponent; i++) {
         result *= base;
@@ -39,7 +39,6 @@ void example_basics () {
     // literal notations
     char hexadecimal = 0x10;    // 16
     char octal       = 020;     // 16
-    char binary      = 0b10000; // 16
     // suffixes L for "long" and U for "unsigned" can be added
     unsigned long long suffixes = 0ull;
     //// floating point numbers
@@ -59,8 +58,10 @@ void example_basics () {
     my_number my_actual_number = 3.2;
 
     //// other stuff
-    // you can declare multiple variables of the same type like this
+    // you can declare/initialize multiple variables of the same type
+    // but this is generally considered bad practice
     int x, y, z;
+    int a = 3, b = 2, c = 1;
     // assigning the same value to multiple variables is possible like this
     // because x = y first assigns y to x and then returns x, which is chainable
     x = y = 100;
@@ -81,6 +82,10 @@ void example_basics () {
     x++; ++x;
     x--; --x;
     //// bitwise
+    // WARNING: the C language standard does not support
+    // binary notation with 0b prefix, but the GCC compiler does.
+    // this is called a "compiler extension"
+    // and should be avoided for combatability.
     assert((0b110 & 0b101) == 0b100); x &= 1; // AND
     assert((0b110 | 0b101) == 0b111); x |= 1; // OR
     assert((0b110 ^ 0b101) == 0b011); x ^= 1; // XOR
@@ -88,11 +93,11 @@ void example_basics () {
     // leftshift: fill with 0, LSB first
     assert(0b1100 << 1 == 0b11000); x <<= 1;
     // interpretation: multiplication with power of two
-    x = 3; y = 2; assert(x << y == x * pow(2, y));
+    x = 3; y = 2; assert(x << y == x * int_pow(2, y));
     // rightshift: fill with MSB (here: 0), MSB first
     assert(0b1100 >> 1 == 0b110); x >>= 1;
     // interpretation: integer division with power of two
-    x = 32; y = 3; assert(x >> y == x / pow(2, y));
+    x = 32; y = 3; assert(x >> y == x / int_pow(2, y));
 
     ////// pointers
     // a pointer has a memory address as its value.
@@ -127,7 +132,7 @@ void example_basics () {
     int array[] = {5, 6, 7, 8};
     size_t length = sizeof(array) / sizeof(int);
     int* pointer = &array[0];
-    for (int i = 0; i < length; i++) {
+    for (unsigned int i = 0; i < length; i++) {
       //printf("%d\n", *pointer);
       pointer++; // one unit = sizeof(int)
     }
@@ -154,7 +159,7 @@ void example_basics () {
     // useful for performing bitwise operations on a pointer
     // by treating its contained memory address like an integer,
     // e.g. for pointer comparison
-    uintptr_t intptr = (uintptr_t) &binary;
+    uintptr_t intptr = (uintptr_t) &hexadecimal;
 
     ////// arrays
     // declare but DON'T initialize an array with 10 elements.
@@ -162,7 +167,7 @@ void example_basics () {
     // initialization, not a default like 0
     int weird_numbers[10];
     // declare and initialize array with 0's
-    int zeros[10] = {};
+    int zeros[10] = {0};
     // declare and initialize array [1, 2, 0, 0, 0] 
     int some_numbers_some_zeros[5] = {1, 2};
     // declare and initialize array with 3 given elements

@@ -23,7 +23,7 @@
 #include <stdbool.h>
 
 //// #pragma directive
-// enable/disable compiler-specific features,
+// enable/disable compiler extensions (which should be avoided),
 // e.g. run a function at program startup before main()
 static void startup_func() { /* before main()! */ }
 #pragma startup startup_func

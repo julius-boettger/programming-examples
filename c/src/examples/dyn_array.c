@@ -57,7 +57,7 @@ static int pop_dyn_array (DynArray* dyn_array) {
     if (is_empty_dyn_array(dyn_array)) {
         return INT_MIN;
     } 
-    int size = size_dyn_array(dyn_array);
+    size_t size = size_dyn_array(dyn_array);
     int result = get_element_dyn_array(dyn_array, size - 1);
     if (size == 1) {
         free(dyn_array->data);
@@ -76,7 +76,7 @@ static void print_dyn_array (DynArray* dyn_array) {
         printf("]\n");
         return;
     }
-    for (int i = 0; i < size - 1; i++) {
+    for (unsigned int i = 0; i < size - 1; i++) {
         printf("%d, ", get_element_dyn_array(dyn_array, i));
     }
     printf("%d]\n", get_element_dyn_array(dyn_array, size - 1));
