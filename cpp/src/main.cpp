@@ -4,6 +4,8 @@ some notes
 
 - this project with C++ examples assumes you know C and aims to only
   show the difference to C, which is not everything C++ has to offer
+- as of C++23, the language standard does not contain C's restrict
+  keyword, although many compilers have implemented it
 
 */
 
