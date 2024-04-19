@@ -1,7 +1,13 @@
 // better integers like std::uint8_t
 #include <cstdint>
 
+// for later
+void do_nothing() {}
+
 namespace basics {
+    // convenient syntax for nested namespaces
+    namespace one::two {}
+
     void run_examples() {
         //// types of initialization
         int default_init;     // => garbage value
@@ -26,6 +32,16 @@ namespace basics {
         std::uint8_t uint8;
         std::uint_fast8_t fast_uint8;
         std::uint_least8_t least_uint8;
+
+        //// namespaces
+        // call function explicitly from global namespace:
+        // can be useful when multiple namespaces
+        // have functions with the same name
+        ::do_nothing();
+        // in this example, you can also just...
+        do_nothing();
+        // namespace aliases exist
+        namespace shorthand = basics::one::two;
 
         // preferred way for explicit casting: static_cast
         // will produce UB if value doesn't fit in new type
