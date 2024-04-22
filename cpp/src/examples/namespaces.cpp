@@ -9,7 +9,13 @@ namespace one::two {}
 // makes identifiers only visible to this file (like static)
 // but is considered better practice than using static
 namespace {
-    const int not_static {};
+    const int basically_static {};
+}
+// can also be used inside of a named namespace!
+namespace named {
+    namespace {
+        const int basically_static {};
+    }
 }
 
 //// inline namespace
