@@ -10,7 +10,7 @@ executable('c-examples',
     # compiler arguments
     c_args: [
         # more warnings
-        '-Wall', '-Wextra', '-Wconversion', '-Wsign-conversion',
+        '-Wall', '-Wextra', '-Wconversion', '-Wsign-conversion', '-Wshadow',
         # ignore some warnings (acceptable for these examples)
         '-Wno-unused-variable', '-Wno-unused-value', '-Wno-unused-but-set-variable', '-Wno-unused-function', '-Wno-unknown-pragmas', '-Wno-unused-parameter',
         # warn when using compiler extensions (compiler-specific behavior)

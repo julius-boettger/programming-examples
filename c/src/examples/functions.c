@@ -38,12 +38,12 @@ int* get_number () {
 
 // take a function with a signature like sum's as the first argument
 // see more on function pointers below
-int sum_wrapper (int (*sum)(int, int), int a, int b) {
-    return sum(a, b);
+int sum_wrapper (int (*sum_)(int, int), int a, int b) {
+    return sum_(a, b);
 }
 // function pointer types can be shortened in function signatures:
-int sum_wrapper_2 (int sum(int, int), int a, int b) {
-    return sum(a, b);
+int sum_wrapper_2 (int sum_(int, int), int a, int b) {
+    return sum_(a, b);
 }
 // can be made generic using void pointers
 void* useless_wrapper (void* fn()) {
