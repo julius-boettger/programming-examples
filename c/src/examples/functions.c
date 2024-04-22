@@ -50,10 +50,10 @@ void* useless_wrapper (void* fn()) {
     return fn();
 }
 
-// to call a function that was not defined in the
-// current source file it SHOULD be declared
-// (without being defined, like below).
-// this is also called a "function prototype":
+// to call a function that was not defined in
+// the current source file it SHOULD be declared
+// (without being defined, like below). this is also
+// called a "function prototype" or "forward declaration":
 void defined_elsewhere ();
 // the linker will then search for a definition
 // somewhere else, and could find one like this:
