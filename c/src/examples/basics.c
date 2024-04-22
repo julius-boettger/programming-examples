@@ -8,7 +8,8 @@
 #include <stdint.h>
 
 // global variables can be declared out here!
-const int global_variable = 2;
+// ("extern" and "const" will be explained later)
+extern const int global_variable = 2;
 
 // don't worry about this, we just need it for later
 int int_pow (int base, int exponent) {
@@ -233,9 +234,12 @@ void example_basics () {
     // "initialized data segment", a special segment of
     // the processes virtual memory for global variables.
     //// extern (initialized with 0)
-    // tell the compiler to look for the value of this
-    // variable somewhere else (see top of file!)
-    // (not really necessary, also compiles without this)
+    // has two meanings, based on context:
+    // 1.: allow a global variable to be accessed 
+    //     from other files (see top of this file)
+    // 2.: tell the compiler to look for the value of this
+    //     variable somewhere else, could even be in another file
+    //     (here: top of this file, similar to function prototypes)
     extern const int global_variable;
     assert(global_variable == 2);
 
