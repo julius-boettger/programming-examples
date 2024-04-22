@@ -1,6 +1,15 @@
 // better integers like std::uint8_t
 #include <cstdint>
 
+// better constants with constant expressions:
+// have to be evaluable at compile time!
+// best practice wherever possible
+extern constexpr long constant { 10 * 245 - 300 };
+// when initializing with "extern constexpr", other files
+// have to use "extern const" for their forward declarations
+// (because compile time evaluation is not possible)
+extern const long constant;
+
 namespace basics {
     void run_examples() {
         //// types of initialization
@@ -34,11 +43,6 @@ namespace basics {
         // reliable built-in binary notation
         // also: ' as digit separator!
         unsigned char binary { 0b1101'0010 };
-
-        // better constants with constant expressions
-        // have to be evaluable at compile time!
-        // best practice wherever possible
-        constexpr long constant { 10 * 245 - 300 };
 
         // many operators have alternative, equivalent keywords
         // https://en.cppreference.com/w/cpp/language/operator_alternative
