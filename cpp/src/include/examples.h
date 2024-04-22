@@ -7,6 +7,10 @@
 inline int defined_in_header () {
     return 32;
 }
+// the same goes for inline variables.
+// using this is best practice for global constants
+// that need to be shared between multiple files!
+inline constexpr float physics_constant = 6.144f;
 
 // namespaces need to be considered here!
 namespace basics     { void run_examples(); }
