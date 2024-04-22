@@ -8,7 +8,7 @@ executable(
         # throw errors when using compiler extensions (compiler-specific behavior)
         '-pedantic-errors',
         # more warnings
-        '-Wall', '-Weffc++', '-Wextra', '-Wconversion', '-Wsign-conversion',
+        '-Wall', '-Weffc++', '-Wextra', '-Wconversion', '-Wsign-conversion', '-Wshadow',
         # ignore some warnings
         '-Wno-unused-variable'
     ], sources: [
