@@ -30,10 +30,12 @@ void example_control () {
     case 2:
         printf("one or two...?\n");
         break;
-    case 3:
+    // blocks are also possible
+    case 3: {
         printf("three!\n");
         // no "break;"! "fall through"
         // => run everything until next "break;"
+    }
     default: // if no match is found
         // do nothing :)
         break;
