@@ -48,6 +48,9 @@ namespace basics {
         // (not runtime) and has an optional diagnostic message
         static_assert(true, "true was not true???");
 
+        // type aliasing (preferred over c-style typedef)
+        using Distance = int;
+
         //// explicit casting
         // c-style: available for compatability, bad practice.
         int c_style_casted1 { (int) 5.432f };
