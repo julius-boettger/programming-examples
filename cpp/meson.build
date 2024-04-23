@@ -10,7 +10,7 @@ executable(
         # more warnings
         '-Wall', '-Weffc++', '-Wextra', '-Wconversion', '-Wsign-conversion', '-Wshadow',
         # ignore some warnings
-        '-Wno-unused-variable', '-Wno-unused-local-typedefs',
+        '-Wno-unused-variable', '-Wno-unused-local-typedefs', '-Wno-unused-parameter',
     ], sources: [
         'src/main.cpp',
         'src/examples/basics.cpp',
