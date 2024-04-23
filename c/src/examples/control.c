@@ -23,19 +23,20 @@ void example_control () {
     int result = true ? 1 : 0;
 
     //// switch statement
+    // best practice wherever possible
     switch (0) {
-        // multiple cases are possible!
-        case 1:
-        case 2:
-            printf("one or two...?\n");
-            break;
-        case 3:
-            printf("three!\n");
-            // no "break;"! "fall through"
-            // => run everything until next "break;"
-        default: // if no match is found
-            // do nothing :)
-            break;
+    // multiple cases are possible!
+    case 1:
+    case 2:
+        printf("one or two...?\n");
+        break;
+    case 3:
+        printf("three!\n");
+        // no "break;"! "fall through"
+        // => run everything until next "break;"
+    default: // if no match is found
+        // do nothing :)
+        break;
     }
 
     //// while
