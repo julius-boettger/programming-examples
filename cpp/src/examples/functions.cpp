@@ -12,6 +12,14 @@ consteval int get_other_special_value() {
 // implicitly inline and should be defined in header
 // files if they are used by multiple source files!
 
+//// function overloading! (is possible)
+   int add(   int x,    int y) { return x + y; }
+double add(double x, double y) { return x + y; }
+// forbid usage of a function at compile time.
+// most useful when working with overloaded functions
+// (but also not that useful?)
+int add(long, long) = delete;
+
 namespace functions {
     void run_examples() {
         constexpr int special_value { get_special_value() };
