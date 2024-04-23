@@ -36,10 +36,6 @@ namespace basics {
         std::uint_fast8_t fast_uint8;
         std::uint_least8_t least_uint8;
 
-        // preferred way for explicit casting: static_cast
-        // will produce UB if value doesn't fit in new type
-        int int_from_float { static_cast<int>(5.432f) };
-
         // reliable built-in binary notation
         // also: ' as digit separator!
         unsigned char binary { 0b1101'0010 };
@@ -51,5 +47,15 @@ namespace basics {
         // new type of assert that is checked at compile time
         // (not runtime) and has an optional diagnostic message
         static_assert(true, "true was not true???");
+
+        //// explicit casting
+        // c-style: available for compatability, bad practice.
+        int c_style_casted1 { (int) 5.432f };
+        int c_style_casted2 {  int(5.432f) }; // also possible!
+        // static_cast: best practice, but will
+        // produce UB if value doesn't fit in new type
+        int statically_casted { static_cast<int>(5.432f) };
+        // const casts / reinterpret casts: bad practice,
+        // cause more harm than useful behavior on average
     }
 }
