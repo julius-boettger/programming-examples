@@ -51,6 +51,9 @@ namespace basics {
         // type aliasing (preferred over c-style typedef)
         using Distance = int;
 
+        // type inference, useful for when type doesn't really matter
+        auto dont_care_about_type = 3.23L;
+
         //// explicit casting
         // c-style: available for compatability, bad practice.
         int c_style_casted1 { (int) 5.432f };
