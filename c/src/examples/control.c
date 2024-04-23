@@ -54,7 +54,8 @@ void example_control () {
         continue;
     } while (true);
     //// for
-    for (int i = 0; i < 10; i++) {
+    // remember: prefer ++i over i++!
+    for (int i = 0; i < 10; ++i) {
         // do something
         break;
         continue;

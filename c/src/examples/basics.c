@@ -14,7 +14,7 @@ extern const int global_variable = 2;
 // don't worry about this, we just need it for later
 int int_pow (int base, int exponent) {
     int result = 1;
-    for (int i = 0; i < exponent; i++) {
+    for (int i = 0; i < exponent; ++i) {
         result *= base;
     }
     return result;
@@ -86,6 +86,9 @@ void example_basics () {
     1 / 1; x /= 1;
     1 % 1; x %= 1; // modulo
     // increment / decrement
+    // good practice: prefer prefix versions wherever possible,
+    // they are less likely to cause unwanted surprises
+    // and sometimes even offer performance benefits
     x++; ++x;
     x--; --x;
     //// bitwise
@@ -146,9 +149,9 @@ void example_basics () {
     int array[] = {5, 6, 7, 8};
     size_t length = sizeof(array) / sizeof(int);
     int* pointer = &array[0];
-    for (unsigned int i = 0; i < length; i++) {
+    for (unsigned int i = 0; i < length; ++i) {
       //printf("%d\n", *pointer);
-      pointer++; // one unit = sizeof(int)
+      ++pointer; // one unit = sizeof(int)
     }
     //// subtract pointers
     // 1 because &array[1] is the size of 1 int greater than &array[0]
@@ -226,9 +229,9 @@ void example_basics () {
     //// static (initialized with 0)
     // will only be declared/initialized once during the whole
     // programs runtime! so something like this is possible:
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; ++i) {
         static int only_initialized_once = 5;
-        only_initialized_once++;
+        ++only_initialized_once;
     } // => only_initialized_once = 15
     // global or static variables reside in the
     // "initialized data segment", a special segment of

@@ -76,7 +76,7 @@ static void print_dyn_array (DynArray* dyn_array) {
         printf("]\n");
         return;
     }
-    for (unsigned int i = 0; i < size - 1; i++) {
+    for (unsigned int i = 0; i < size - 1; ++i) {
         printf("%d, ", get_element_dyn_array(dyn_array, i));
     }
     printf("%d]\n", get_element_dyn_array(dyn_array, size - 1));
