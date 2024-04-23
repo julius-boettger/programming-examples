@@ -47,5 +47,9 @@ namespace basics {
         // many operators have alternative, equivalent keywords
         // https://en.cppreference.com/w/cpp/language/operator_alternative
         bool condition { (!true && false) || (false and (not true or false)) };
+
+        // new type of assert that is checked at compile time
+        // (not runtime) and has an optional diagnostic message
+        static_assert(true, "true was not true???");
     }
 }
