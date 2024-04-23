@@ -41,7 +41,13 @@ namespace namespaces {
         // in this example, you can also just...
         do_nothing();
 
-        //// namespace aliases (exist)
+        //// more convenient usage
+        // namespace aliases (exist)
         namespace shorthand = one::two;
+        // make just one thing from a namespace visible
+        using named::basically_static;
+        // make everything in a namespace visible
+        // (bad practice! especially for the std namespace)
+        using namespace shorthand;
     }
 }
