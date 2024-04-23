@@ -6,6 +6,8 @@ some notes
   show the difference to C, which is not everything C++ has to offer
 - as of C++23, the language standard does not contain C's restrict
   keyword, although many compilers have implemented it
+- storage class specifiers "auto" and "register" are deprecated
+  (since C++10 and C++17)
 
 */
 
