@@ -68,9 +68,23 @@ namespace basics {
         // "rvalue expressions" evaluate to temporary values
         5;
         // "lvalue expressions" evaluate to identifiable objects
+        // also differentiate between "modifiable" and "non-modifiable"!
         boolean;
         // if an rvalue is expected but an lvalue supplied,
         // implicit conversion will take place
         bool bool2 { boolean }; // lvalue "boolean" => rvalue "true"
+
+        //// (lvalue) references
+        // - must be initialized immediately
+        // - can not be reseated later
+        // - coming from C: the "&" means "lvalue reference", not "address of"
+        int non_const_int = 1;
+        int& non_const_ref { non_const_int };
+        const int const_int = 2;
+        const int& const_ref { const_int };
+        // const reference to non-const variable
+        const int& const_ref_to_non_const { non_const_int };
+        // const reference to rvalue
+        const int& const_ref_from_rvalue { 5 };
     }
 }
