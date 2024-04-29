@@ -85,6 +85,13 @@ namespace basics {
         // const reference to non-const variable
         const int& const_ref_to_non_const { non_const_int };
         // const reference to rvalue
-        const int& const_ref_from_rvalue { 5 };
+        const int& const_ref_from_rvalue { 2 };
+        // constexpr references: can only be
+        // bound to global or static variables
+        static int static_int { 4 };
+        constexpr int& static_int_ref { static_int };
+        // use another "const" for constants!
+        const static int const_static_int { 5 };
+        constexpr const int& const_static_int_ref { const_static_int };
     }
 }
