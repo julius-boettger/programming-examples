@@ -63,5 +63,14 @@ namespace basics {
         int statically_casted { static_cast<int>(5.432f) };
         // const casts / reinterpret casts: bad practice,
         // cause more harm than useful behavior on average
+
+        //// lvalue and rvalue expressions
+        // "rvalue expressions" evaluate to temporary values
+        5;
+        // "lvalue expressions" evaluate to identifiable objects
+        boolean;
+        // if an rvalue is expected but an lvalue supplied,
+        // implicit conversion will take place
+        bool bool2 { boolean }; // lvalue "boolean" => rvalue "true"
     }
 }
