@@ -74,10 +74,17 @@ namespace basics {
         // implicit conversion will take place
         bool bool2 { boolean }; // lvalue "boolean" => rvalue "true"
 
+        //// (raw) pointers
+        // exist, but are to be avoided
+        bool* bool_pointer = &boolean;
+        // C++ nullptr == C null
+        void* null { nullptr };
+
         //// (lvalue) references
+        // - preferred over raw pointers
         // - must be initialized immediately
         // - can not be reseated later
-        // - coming from C: the "&" means "lvalue reference", not "address of"
+        // - the "&" means "lvalue reference" here, not "address of"
         int non_const_int = 1;
         int& non_const_ref { non_const_int };
         const int const_int = 2;
