@@ -7,6 +7,11 @@
 void double_in_place(int& x) { x *= 2; }
 void const_ref(const int& x) {}
 
+//// returning references
+// make sure that returned reference
+// lives beyond scope of function!
+int& pass_through(int& x) { return x; }
+
 //// constexpr and consteval functions
 // constexpr" functions will be evaluated
 // at compile time wherever possible
@@ -64,6 +69,11 @@ namespace functions {
         double_in_place(x);
         assert(x == 10);
         const_ref(5); // rvalue also works!
+
+        // returning references: result can
+        // be used as lvalue for assignment!
+        pass_through(x) = 7;
+        assert(x == 7);
 
         // constexpr variables initialized with consteval functions
         constexpr int special_value { get_special_value() };
