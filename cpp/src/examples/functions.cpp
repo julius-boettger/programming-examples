@@ -1,3 +1,12 @@
+#include <cassert>
+
+//// pass by (lvalue) reference
+// vs pass by value:
+// - faster for big types like classes
+// - probably slower for small types like int!
+void double_in_place(int& x) { x *= 2; }
+void const_ref(const int& x) {}
+
 //// constexpr and consteval functions
 // constexpr" functions will be evaluated
 // at compile time wherever possible
@@ -50,6 +59,12 @@ auto get_quintuple() { return N * 5; }
 
 namespace functions {
     void run_examples() {
+        // pass by reference
+        int x = 5;
+        double_in_place(x);
+        assert(x == 10);
+        const_ref(5); // rvalue also works!
+
         // constexpr variables initialized with consteval functions
         constexpr int special_value { get_special_value() };
         constexpr int other_special_value { get_other_special_value() };

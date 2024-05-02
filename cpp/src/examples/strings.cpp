@@ -21,8 +21,8 @@ namespace strings {
         auto std_string { "string literal"s };
 
         //// std::string_view
-        // basically a better read-only pointer to any kind of string
-        // (especially for function parameters)
+        // basically a better const reference to any kind of string
+        // (especially for function parameters!)
         std::string_view string_view { string };
         // view can also be modified without modifying original string
         string_view.remove_prefix(1); // remove first char
