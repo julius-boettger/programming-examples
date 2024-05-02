@@ -53,6 +53,9 @@ namespace basics {
 
         // type inference, useful for when type doesn't really matter
         auto dont_care_about_type = 3.23L;
+        // usually just infers the basic type, so
+        // extra modifiers should be applied explicitly
+        constexpr auto& ref_to_constant = constant;
 
         //// explicit casting
         // c-style: available for compatability, bad practice.
