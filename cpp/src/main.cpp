@@ -28,6 +28,7 @@ int main() {
     basics::run_examples();
     control::run_examples();
     functions::run_examples();
+    namespaces::run_examples();
     strings::run_examples();
 
     return 0;
