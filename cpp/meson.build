@@ -17,6 +17,7 @@ executable(
         'src/examples/control.cpp',
         'src/examples/functions.cpp',
         'src/examples/namespaces.cpp',
+        'src/examples/optionals.cpp',
         'src/examples/strings.cpp',
     ]
 )

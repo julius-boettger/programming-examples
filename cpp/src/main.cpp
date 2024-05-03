@@ -29,6 +29,7 @@ int main() {
     control::run_examples();
     functions::run_examples();
     namespaces::run_examples();
+    optionals::run_examples();
     strings::run_examples();
 
     return 0;

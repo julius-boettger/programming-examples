@@ -17,6 +17,7 @@ namespace basics     { void run_examples(); }
 namespace control    { void run_examples(); }
 namespace functions  { void run_examples(); }
 namespace namespaces { void run_examples(); }
+namespace optionals  { void run_examples(); }
 namespace strings    { void run_examples(); }
 
 #endif
