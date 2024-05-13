@@ -52,7 +52,7 @@ namespace enums {
 
         // this works when base is specified
         // or enum is enum class
-        ExplicitType explicitType { 0 };
+        ExplicitType explicit_type { 0 };
         State another_state { 0 };
     }
 }
