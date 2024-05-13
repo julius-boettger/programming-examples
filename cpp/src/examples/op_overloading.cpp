@@ -1,5 +1,3 @@
-#include <cassert>
-
 // an example enum
 enum Color {
     red,
@@ -7,14 +5,15 @@ enum Color {
     blue,
 };
 
-// overload operator~ to convert enumerator to int
-int operator~(Color color) {
+// overload unary "+" operator (usually used like "+2")
+// to convert enumerator to int
+constexpr int operator+(Color color) {
     return static_cast<int>(color);
 }
 
 namespace op_overloading {
     void run_examples() {
         // convert enumerator to int
-        assert(~blue == 2);
+        static_assert(+blue == 2);
     }
 }
