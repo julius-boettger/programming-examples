@@ -22,10 +22,16 @@ namespace Direction {
         down,
     };
 }
+// or use this cool shorthand! "enum classes"
+// also has some other benefits, see use below
+enum class State {
+    ready,
+    running
+};
 
 // the underlying integral base type can be
 // specified explicitly (default is usually int)
-enum ExplicitType: short {};
+enum ExplicitType: short { value };
 
 namespace enums {
     void run_examples() {
@@ -37,10 +43,19 @@ namespace enums {
 
         //// these actually cause errors!
         //Color color { white };
-        // only works if base is specified
         //Color color { 0 };
 
-        // use scoped enums like this
+        // scoped enums (with explicit namespace)
         Direction::Direction direction { Direction::up };
+        // enum classes avoid some redundancy!
+        State state { State::ready };
+        // can also import enumerators into current scope
+        using enum State;
+        State short_state { running };
+
+        // this works when base is specified
+        // or enum is enum class
+        ExplicitType explicitType { 0 };
+        State another_state { 0 };
     }
 }
