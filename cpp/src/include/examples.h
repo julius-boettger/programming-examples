@@ -15,6 +15,7 @@ inline constexpr float physics_constant = 6.144f;
 // namespaces need to be considered here!
 namespace basics     { void run_examples(); }
 namespace control    { void run_examples(); }
+namespace enums      { void run_examples(); }
 namespace functions  { void run_examples(); }
 namespace namespaces { void run_examples(); }
 namespace optionals  { void run_examples(); }

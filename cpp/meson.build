@@ -15,6 +15,7 @@ executable(
         'src/main.cpp',
         'src/examples/basics.cpp',
         'src/examples/control.cpp',
+        'src/examples/enums.cpp',
         'src/examples/functions.cpp',
         'src/examples/namespaces.cpp',
         'src/examples/optionals.cpp',

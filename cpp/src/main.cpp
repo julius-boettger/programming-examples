@@ -27,6 +27,7 @@ int main() {
 
     basics::run_examples();
     control::run_examples();
+    enums::run_examples();
     functions::run_examples();
     namespaces::run_examples();
     optionals::run_examples();
