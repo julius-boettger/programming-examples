@@ -21,5 +21,6 @@ namespace namespaces     { void run_examples(); }
 namespace op_overloading { void run_examples(); }
 namespace optionals      { void run_examples(); }
 namespace strings        { void run_examples(); }
+namespace structs        { void run_examples(); }
 
 #endif

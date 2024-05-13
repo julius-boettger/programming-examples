@@ -1,6 +1,3 @@
-// note: most of the differences of enums in
-//       C vs C++ are also true for structs
-
 //// unscoped enum
 // enumerators (values like "red") are put
 // into the parent namespace (here: global)

@@ -21,5 +21,6 @@ executable(
         'src/examples/op_overloading.cpp',
         'src/examples/optionals.cpp',
         'src/examples/strings.cpp',
+        'src/examples/structs.cpp',
     ]
 )

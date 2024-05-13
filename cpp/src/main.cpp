@@ -33,6 +33,7 @@ int main() {
     op_overloading::run_examples();
     optionals::run_examples();
     strings::run_examples();
+    structs::run_examples();
 
     return 0;
 }
