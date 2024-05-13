@@ -18,6 +18,7 @@ executable(
         'src/examples/enums.cpp',
         'src/examples/functions.cpp',
         'src/examples/namespaces.cpp',
+        'src/examples/op_overloading.cpp',
         'src/examples/optionals.cpp',
         'src/examples/strings.cpp',
     ]

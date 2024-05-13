@@ -30,6 +30,7 @@ int main() {
     enums::run_examples();
     functions::run_examples();
     namespaces::run_examples();
+    op_overloading::run_examples();
     optionals::run_examples();
     strings::run_examples();
 
