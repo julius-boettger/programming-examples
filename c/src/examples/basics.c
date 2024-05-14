@@ -7,8 +7,9 @@
 // for better int datatypes like uint8_t
 #include <stdint.h>
 
-// global variables can be declared out here!
-// ("extern" and "const" will be explained later)
+// global variables can be declared out here.
+// their lifetime is static by default (more on that later).
+// "extern" and "const" will also be explained later.
 extern const int global_variable = 2;
 
 // don't worry about this, we just need it for later
@@ -228,7 +229,8 @@ void example_basics () {
     register int super_fast;
     //// static (initialized with 0)
     // will only be declared/initialized once during the whole
-    // programs runtime! so something like this is possible:
+    // programs runtime! this is also called "static lifetime".
+    // so something like this is possible:
     for (int i = 0; i < 10; ++i) {
         static int only_initialized_once = 5;
         ++only_initialized_once;
