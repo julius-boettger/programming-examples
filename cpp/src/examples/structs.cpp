@@ -1,7 +1,6 @@
 // structs and classes are almost functionally identical.
-// use structs when you only need public members,
-// don't need setup/cleanup code and don't need
-// getters/setters with extra logic. use classes otherwise.
+// use structs when you only need public members and
+// don't need de-/constructors. use classes otherwise.
 
 #include <string>
 

@@ -26,6 +26,7 @@ int main() {
     std::cout << "Hello World :)";
 
     basics::run_examples();
+    classes::run_examples();
     control::run_examples();
     enums::run_examples();
     functions::run_examples();

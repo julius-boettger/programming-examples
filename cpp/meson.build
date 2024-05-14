@@ -14,6 +14,7 @@ executable(
     ], sources: [
         'src/main.cpp',
         'src/examples/basics.cpp',
+        'src/examples/classes.cpp',
         'src/examples/control.cpp',
         'src/examples/enums.cpp',
         'src/examples/functions.cpp',
