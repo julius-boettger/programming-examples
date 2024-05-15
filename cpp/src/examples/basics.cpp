@@ -1,5 +1,7 @@
 // better integers like std::uint8_t
 #include <cstdint>
+// for assert()
+#include <cassert>
 
 // better constants with constant expressions:
 // have to be evaluable at compile time!
@@ -82,6 +84,26 @@ namespace basics {
         bool* bool_pointer = &boolean;
         // C++ nullptr == C null
         void* null { nullptr };
+
+        //// dynamic memory allocation
+        // request dynamic memory with the size of an int
+        // and assign the resulting address to a pointer.
+        // will throw an exception if allocation fails.
+        int* heap_int { new int };
+        *heap_int = 5;
+        // provide a value during initialization
+        int* init_heap_int { new int { 4 } };
+        assert(*init_heap_int == 4);
+        // don't forget to free the memory!
+        delete heap_int;
+        delete init_heap_int;
+        // optionally set the pointer to nullptr
+        // afterwards to avoid UB when using
+             heap_int = nullptr;
+        init_heap_int = nullptr;
+        // special notation for arrays
+        int* heap_array { new int[3] {} };
+        delete[] heap_array;
 
         //// (lvalue) references
         // - preferred over raw pointers
