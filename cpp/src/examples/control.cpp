@@ -1,5 +1,11 @@
 namespace control {
     void run_examples() {
+        //// range-based for loop
+        int array[] {1, 2, 3};
+        for (int i : array) {
+            // do something
+        }
+
         //// constexpr if statements
         // require conditional to be constant expression
         constexpr int my_constant = 3;
