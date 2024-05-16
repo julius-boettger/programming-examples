@@ -125,5 +125,15 @@ namespace basics {
         // use another "const" for constants!
         const static int const_static_int { 5 };
         constexpr const int& const_static_int_ref { const_static_int };
+
+        //// rvalue references
+        // rvalue references are references initialized with
+        // rvalues. this creates a reference to a temporary
+        // object with extended lifetime. may not seem
+        // very useful here, see more in functions.cpp.
+        int&& rref { 5 };
+        // value can be modified!
+        rref = 6;
+        assert(rref == 6);
     }
 }

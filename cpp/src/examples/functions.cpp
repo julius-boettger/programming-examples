@@ -62,6 +62,14 @@ float get_quadruple() {
 template <auto N>
 auto get_quintuple() { return N * 5; }
 
+//// rvalue reference as argument
+// can only be called with an rvalue reference
+void process_ref(int&& rref) {}
+// usually overloaded with a version that can
+// only be called with an lvalue reference
+void process_ref(int& lref) {}
+// (i don't know how this could be useful)
+
 namespace functions {
     void run_examples() {
         // pass by reference
@@ -80,10 +88,15 @@ namespace functions {
         constexpr int other_special_value { get_other_special_value() };
 
         // calling function templates
-         int doubled1      { get_double      (2) }; // in most cases
-        char doubled2      { get_double<char>(2) }; // sometimes useful
+         int doubled1     { get_double      (2) }; // in most cases
+        char doubled2     { get_double<char>(2) }; // sometimes useful
         long tripled      { get_triple(3l) };
         float quadrupled  { get_quadruple<4.0f>() };
         double quintupled { get_quintuple<5.0 >() };
+
+        // lvalue / rvalue reference arguments
+        int& doubled_ref { doubled1 };
+        process_ref(doubled_ref); // => matches lvalue ref
+        process_ref(5);           // => matches rvalue ref
     }
 }
