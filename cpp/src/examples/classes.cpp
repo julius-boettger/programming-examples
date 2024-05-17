@@ -55,8 +55,13 @@ public:
     // unwanted implications, so avoid it
     //Person() {}
 
-    // define own copy constructor: is called when object
-    // is initialized with other object of same type.
+    // constructor with "member initializer list":
+    // should order members like in class definition,
+    // as they are also initialized in that order
+    Person(int age) : m_age { age } {};
+
+    //// copy constructor
+    // called to construct object from another object.
     // avoid side effects as they will not be triggered
     // when call to copy constructor is optimized out.
     // will be implicitly generated if not self-defined!
@@ -66,10 +71,20 @@ public:
     // or just forbid making copies in the first place
     //Person(const Person& person) = delete;
 
-    // constructor with "member initializer list":
-    // should order members like in class definition,
-    // as they are also initialized in that order
-    Person(int age) : m_age { age } {};
+    //// copy assignment operator
+    // similar to copy constructor: called to copy content of
+    // existing object to another existing object, e.g. "y = x;".
+    Person& operator=(const Person& person) {
+        // detect self-assignment
+		if (&person == this) { return *this; }
+        // do copying
+        m_age = person.get_age();
+        // return reference to self
+        return *this;
+    }
+    // can also be explicitly generated or forbidden
+    //Person& operator=(const Person& person) = default;
+    //Person& operator=(const Person& person) = delete;
 
     // use "explicit" to not make this a
     // converting constructor (more on that later)
@@ -87,7 +102,6 @@ public:
     // can also be defined here already,
     // although they are not member functions!
     friend void friend_defined_in_class() { /* code */ }
-
     // friend classes can also access non-public members
     friend class PersonController;
 };
@@ -167,6 +181,10 @@ namespace classes {
         // the following is not allowed, as Person(char* string)
         // is "explicit" (cannot be called implicitly)
         //get_age_of_person("string");
+
+        // use copy assignment operator
+        default_person = person;
+        assert(default_person.get_age() == 71);
 
         // using friends
         set_age_of_person(person, 3);
