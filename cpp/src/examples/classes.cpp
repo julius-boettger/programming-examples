@@ -3,6 +3,7 @@
 
 #include <string>
 #include <cassert>
+#include <utility> // for std::move()
 #include "examples.h"
 
 // classes can be forward declared entirely.
@@ -228,6 +229,10 @@ namespace classes {
         CopyMoveDestr move_assign { 10 };
         move_assign = CopyMoveDestr { 4 };
         assert(move_assign.m_x == 4);
+        // std::move uses move instead of copy
+        // constructor/assignment on lvalues
+        CopyMoveDestr std_moved { std::move(lvalue) };
+        assert(std_moved.m_x == 3);
 
         // using friends
         set_age_of_person(person, 3);
