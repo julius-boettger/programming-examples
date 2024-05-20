@@ -60,41 +60,12 @@ public:
     // as they are also initialized in that order
     Person(int age) : m_age { age } {};
 
-    //// copy constructor
-    // called to construct object from another object.
-    // avoid side effects as they will not be triggered
-    // when call to copy constructor is optimized out.
-    // will be implicitly generated if not self-defined!
-    Person(const Person& person) : m_age { person.get_age() } {}
-    // can also be explicitly generated
-    //Person(const Person& person) = default;
-    // or just forbid making copies in the first place
-    //Person(const Person& person) = delete;
-
-    //// copy assignment operator
-    // similar to copy constructor: called to copy content of
-    // existing object to another existing object, e.g. "y = x;".
-    Person& operator=(const Person& person) {
-        // detect self-assignment
-		if (&person == this) { return *this; }
-        // do copying
-        m_age = person.get_age();
-        // return reference to self
-        return *this;
-    }
-    // can also be explicitly generated or forbidden
-    //Person& operator=(const Person& person) = default;
-    //Person& operator=(const Person& person) = delete;
-
     // use "explicit" to not make this a
     // converting constructor (more on that later)
     explicit Person(const char* string) : m_age { 0 } {};
 
     // delegating initialization to other constructor
     Person (int age, float ignored) : Person { age } {};
-
-    // destructor: called before object is destroyed
-    ~Person() = default;
 
     // friend functions: declare some functions as friends
     // to allow them to access non-public members
@@ -118,6 +89,68 @@ public:
 void set_age_of_person(Person& person, int age) {
     person.m_age = age;
 }
+
+// class to demonstrate 5 special functions:
+// copy constructor, copy assignment,
+// move constructor, move assignment, destructor.
+// copy assignment and move assignment are special operator overloads.
+// all five will be implicitly generated if not defined,
+// but some only under certain conditions.
+// "rule of 5": if any of these 5 are defined or deleted,
+// then the remaining 4 should also be defined or deleted.
+class CopyMoveDestr {
+public:
+    // simple example member and constructor
+    int m_x {};
+    CopyMoveDestr(int x) : m_x { x } {};
+
+    //// copy constructor
+    // called to construct object by copying content from another object.
+    // avoid side effects as they will not be triggered
+    // when call to copy constructor is optimized out.
+    // will be implicitly generated if not self-defined!
+    CopyMoveDestr(const CopyMoveDestr& o) : m_x { o.m_x } {}
+
+    //// copy assignment
+    // similar to copy constructor: called to copy content
+    // of existing object to another existing object.
+    CopyMoveDestr& operator=(const CopyMoveDestr& o) {
+        // detect self-assignment
+		if (&o == this) { return *this; }
+        // copy content
+        m_x = o.m_x;
+        // return reference to self
+        return *this;
+    }
+
+    //// move constructor
+    // similar to copy constructor: called to construct
+    // object by moving content from another object.
+    // useful when dealing with pointers to dynamically
+    // allocated memory to transfer ownership.
+    // this example is kind of bad, as we basically do a copy.
+	CopyMoveDestr(CopyMoveDestr&& o) : m_x { o.m_x } {}
+
+    //// move assignment
+    // similar to move constructor: called to move content
+    // of existing object to another existing object.
+	CopyMoveDestr& operator=(CopyMoveDestr&& o) {
+		if (&o == this) { return *this; }
+		// move content
+        // (bad example, we only do a copy here)
+		m_x = o.m_x;
+		return *this;
+	}
+
+    // destructor: called before object is destroyed
+    ~CopyMoveDestr() = default;
+
+    // 4 of these functions (everything except destructor) can also
+    // be explicitly default-generated, e.g. the copy constructor:
+    //CopyMoveDestr(const CopyMoveDestr& o) = default;
+    // or just forbid calling them in the first place
+    //CopyMoveDestr(const CopyMoveDestr& o) = delete;
+};
 
 // classes that need to be shared between multiple
 // files should be defined in header files, like this:
@@ -169,9 +202,6 @@ namespace classes {
         // call delegated constructor
         Person delegated_person { 1, 3.14f };
         assert(delegated_person.get_age() == 1);
-        // call copy constructor
-        Person copied_person { person };
-        assert(copied_person.get_age() == 71);
 
         //// converting constructors
         // although function only accetps an argument of type
@@ -182,9 +212,22 @@ namespace classes {
         // is "explicit" (cannot be called implicitly)
         //get_age_of_person("string");
 
-        // use copy assignment operator
-        default_person = person;
-        assert(default_person.get_age() == 71);
+        //// copying and moving
+        const CopyMoveDestr lvalue { 3 };
+        // copy constructor (construct from lvalue)
+        CopyMoveDestr copy_constr { lvalue };
+        assert(copy_constr.m_x == 3);
+        // copy assignment (assign to lvalue)
+        CopyMoveDestr copy_assign { 10 };
+        copy_assign = lvalue;
+        assert(copy_assign.m_x == 3);
+        // move constructor (construct from rvalue)
+        CopyMoveDestr move_constr { CopyMoveDestr { 4 } };
+        assert(move_constr.m_x == 4);
+        // move assignment (assign to rvalue)
+        CopyMoveDestr move_assign { 10 };
+        move_assign = CopyMoveDestr { 4 };
+        assert(move_assign.m_x == 4);
 
         // using friends
         set_age_of_person(person, 3);
