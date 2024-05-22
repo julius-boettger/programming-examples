@@ -21,6 +21,7 @@ namespace functions      { void run_examples(); }
 namespace namespaces     { void run_examples(); }
 namespace op_overloading { void run_examples(); }
 namespace optionals      { void run_examples(); }
+namespace smart_ptrs     { void run_examples(); }
 namespace strings        { void run_examples(); }
 namespace structs        { void run_examples(); }
 

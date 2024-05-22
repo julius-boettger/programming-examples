@@ -21,6 +21,7 @@ executable(
         'src/examples/namespaces.cpp',
         'src/examples/op_overloading.cpp',
         'src/examples/optionals.cpp',
+        'src/examples/smart_ptrs.cpp',
         'src/examples/strings.cpp',
         'src/examples/structs.cpp',
     ]

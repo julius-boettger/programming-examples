@@ -33,6 +33,7 @@ int main() {
     namespaces::run_examples();
     op_overloading::run_examples();
     optionals::run_examples();
+    smart_ptrs::run_examples();
     strings::run_examples();
     structs::run_examples();
 
