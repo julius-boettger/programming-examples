@@ -2,6 +2,11 @@
 // for smart pointers
 #include <memory>
 
+// to produce a cyclical reference later
+struct Resource {
+    std::shared_ptr<Resource> ptr {};
+};
+
 // std::unique_ptr can safely be returned by
 // value as it implements move semantics.
 std::unique_ptr<int> create_int(int x) {
@@ -11,12 +16,12 @@ std::unique_ptr<int> create_int(int x) {
 namespace smart_ptrs {
     void run_examples() {
         // smart pointers are wrappers for pointers to
-        // dynamically allocated memory. they also take
+        // dynamically allocated objects. they also take
         // care of deallocation so you don't have to!
 
         //// std::unique_ptr
-        // unique => only owned by one object.
-        // deallocates resource when going out of scope.
+        // only owner of its object.
+        // deallocates object when going out of scope.
         std::unique_ptr<int> unique { new int { 99 } };
         // prefer initialization with std::make_unique
         // over using "new" yourself
@@ -29,8 +34,22 @@ namespace smart_ptrs {
         assert(*unique_from_func == 8);
 
         //// std::shared_ptr
-        // shared => possibly owned by multiple objects.
-        // TODO
+        // one of many owners of its object.
+        // deallocates object when last owner goes out of scope.
+        int* obj { new int { 6 } };
+        std::shared_ptr<int> shared1 { obj };
+        // construct more with existing shared_ptr
+        std::shared_ptr<int> shared2 { shared1 };
+        // std::make_shared
+        // (can't reference an existing object, allocates its own)
+        auto easy_shared1 { std::make_shared<int>(5) };
+        auto easy_shared2 { easy_shared1 };
+
+        // be aware of cyclical references!
+        // they prevent the object from being freed at runtime.
+        Resource cyclical_ref {};
+        // store shared_ptr to self in self:
+        cyclical_ref.ptr = std::make_shared<Resource>(cyclical_ref);
 
         //// std::weak_ptr
         // TODO
