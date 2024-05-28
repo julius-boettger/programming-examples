@@ -184,7 +184,9 @@ void example_basics () {
     // each element has an unpredictable "garbage value" before
     // initialization, not a default like 0
     int weird_numbers[10];
-    // declare and initialize array with 0's
+    // declare and initialize array with 0's:
+    // - "{0}" => explicitly set first element to 0
+    // - implicitly set all remaining elements to 0
     int zeros[10] = {0};
     // declare and initialize array [1, 2, 0, 0, 0] 
     int some_numbers_some_zeros[5] = {1, 2};
