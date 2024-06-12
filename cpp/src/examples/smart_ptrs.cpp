@@ -35,7 +35,8 @@ namespace smart_ptrs {
 
         //// std::shared_ptr
         // one of many owners of its object.
-        // deallocates object when last owner goes out of scope.
+        // deallocates object when last owner goes out of scope
+        // (meaning that the interal reference count is 0)
         int* obj { new int { 6 } };
         std::shared_ptr<int> shared1 { obj };
         // construct more with existing shared_ptr
@@ -52,6 +53,16 @@ namespace smart_ptrs {
         cyclical_ref.ptr = std::make_shared<Resource>(cyclical_ref);
 
         //// std::weak_ptr
-        // TODO
+        // avoids shared_ptr's cyclical reference issues by
+        // not being an owner of its object, but a viewer!
+        // the viewed object will not be deallocated
+        // when a weak_ptr goes out of scope.
+        std::weak_ptr<int> view { shared1 };
+        // weak pointers are not directly accessible.
+        // you need to lock them first (convert to shared_ptr)
+        int contained_value { *view.lock() };
+        // you can also check if the viewed object is still alive
+        // (using reference count of underlying shared_ptr)
+        assert(!view.expired());
     }
 }
