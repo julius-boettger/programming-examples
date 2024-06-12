@@ -186,6 +186,13 @@ public:
     T m_value {};
 };
 
+// constexpr: valid for contructors and member functions
+class ConstClass {
+public:
+    constexpr ConstClass() {}
+    constexpr int value() const { return 3; }
+};
+
 // helper function for later
 int get_age_of_person(const Person& person) {
     return person.get_age();
@@ -245,6 +252,10 @@ namespace classes {
 
         // using templates
         Templated<char> templated { 'x' };
+
+        // using constexpr
+        constexpr ConstClass const_obj {};
+        constexpr int const_int { const_obj.value() };
 
         // ref qualifiers
         RefQual ref_qual {};
