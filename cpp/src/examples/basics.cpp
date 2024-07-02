@@ -52,6 +52,9 @@ namespace basics {
 
         // type aliasing (preferred over c-style typedef)
         using Distance = int;
+        // useful for function pointers!
+        using Predicate = bool (*)();
+        Predicate test_if_equal { nullptr };
 
         // type inference, useful for when type doesn't really matter
         auto dont_care_about_type = 3.23L;
