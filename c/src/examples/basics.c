@@ -97,9 +97,9 @@ void example_basics () {
     // binary notation with 0b prefix, but the GCC compiler does.
     // this is called a "compiler extension"
     // and should be avoided for combatability.
-    assert((0b110 & 0b101) == 0b100); x &= 1; // AND
-    assert((0b110 | 0b101) == 0b111); x |= 1; // OR
-    assert((0b110 ^ 0b101) == 0b011); x ^= 1; // XOR
+    assert((0b110 & 0b101) == 0b100); x &= 1; // AND: extract bits
+    assert((0b110 | 0b101) == 0b111); x |= 1; // OR:  set     bits
+    assert((0b110 ^ 0b101) == 0b011); x ^= 1; // XOR: flip    bits
     assert(~4 == -5); assert(~~3 == 3); // NOT (first complement)
     // leftshift: fill with 0, LSB first
     assert(0b1100 << 1 == 0b11000); x <<= 1;
