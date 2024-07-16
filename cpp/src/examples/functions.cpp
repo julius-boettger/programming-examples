@@ -1,5 +1,8 @@
 #include <cassert>
 
+// for ellipsis
+#include <cstdarg>
+
 //// pass by (lvalue) reference
 // vs pass by value:
 // - faster for big types like classes
@@ -70,6 +73,25 @@ void process_ref(int&& rref) {}
 void process_ref(int& lref) {}
 // (i don't know how this could be useful)
 
+//// ellipsis ("...")
+// allow an unknown number of arguments of unknown types
+// needs to have at least one normal parameter
+// to be avoided! missing type checking is dangerous
+int ellipsis_sum(int count, ...) {
+    int sum { 0 };
+    // get ellipsis arguments
+    va_list args;
+    // initialize with last non-ellipsis argument
+    va_start(args, count); 
+    for (int i { 0 }; i < count; ++i) {
+        // get the next argument as an integer
+        sum += va_arg(args, int);
+    }
+    // clean up
+    va_end(args);
+    return sum;
+}
+
 namespace functions {
     void run_examples() {
         // pass by reference
@@ -98,5 +120,11 @@ namespace functions {
         int& doubled_ref { doubled1 };
         process_ref(doubled_ref); // => matches lvalue ref
         process_ref(5);           // => matches rvalue ref
+
+        // ellipsis
+        assert(ellipsis_sum(0) == 0);
+        assert(ellipsis_sum(3, 1, 2, 3) == 6);
+        // makes no sense, but is allowed!
+        ellipsis_sum(100, 0.23f, "test");
     }
 }
