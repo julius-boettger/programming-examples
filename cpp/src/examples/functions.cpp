@@ -176,5 +176,11 @@ namespace functions {
         // capturing by reference is also possible
         [&var] { ++var; }();
         assert(var == 2); // changed this time!
+        // default captures: capture all mentioned variables
+        // by value
+        assert([=] { return var; }() == var);
+        // by reference
+        [&] { ++var; }();
+        assert(var == 3);
     }
 }
