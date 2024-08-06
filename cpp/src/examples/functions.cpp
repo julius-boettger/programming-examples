@@ -135,38 +135,38 @@ namespace functions {
         // lamda for sum of two ints
         // with function pointer type, which is the only possible type
         // that only supports empty capture clauses (more later)
-        SumFunction lambda_sum1 = [](int a, int b) -> int { return a + b; };
+        SumFunction lambda_sum1 { [](int a, int b) -> int { return a + b; } };
         assert(lambda_sum1(1, 2) == 3);
         // return type is optional, assumes auto if missing
-        SumFunction lambda_sum2 = [](int a, int b) { return a + b; };
+        SumFunction lambda_sum2 { [](int a, int b) { return a + b; } };
         assert(lambda_sum2(3, 4) == 7);
         // parameter list can be empty or missing entirely
-        int (*lambda_value1)() = []() { return 1; };
-        int (*lambda_value2)() = []   { return 2; };
+        int (*lambda_value1)() { []() { return 1; } };
+        int (*lambda_value2)() { []   { return 2; } };
         // shortest possible lambda
-        void (*lambda)() = [] {};
+        void (*lambda)() { [] {} };
         // call lambda inline immediately after definition
         [](){}();
         // using auto is the only way to get the lambdas type precisely
         // as the compiler generates a unique type for each lambda.
         // this is the preferred type for most lambdas, as it 
         // comes with the additional benefit of no overhead.
-        auto lambda_value3 = [] { return 3; };
+        auto lambda_value3 { [] { return 3; } };
         // this is also a valid, with or without explicit types
-        std::function<int()> lambda_value4 = [] { return 4; };
-        std::function        lambda_value5 = [] { return 5; };
+        std::function<int()> lambda_value4 { [] { return 4; } };
+        std::function        lambda_value5 { [] { return 5; } };
         // abbreviated function templates for generic lambdas
-        auto lambda_generic_sum = [](auto a, auto b) { return a + b; };
+        auto lambda_generic_sum { [](auto a, auto b) { return a + b; } };
         assert(lambda_generic_sum(3.0f, 3.2f) == 6.2f);
         // lambdas are implicitly constexpr if possible
-        constexpr auto lambda_const = [] { return 3.14; };
+        constexpr auto lambda_const { [] { return 3.14; } };
         // capture clauses (defined in the square brackets):
         // give lambda access to objects with non-static lifetimes.
         // objects with static lifetimes are always allowed:
-        static int static_var = 4;
+        static int static_var { 4 };
         assert([] { return static_var; }() == static_var);
         // otherwise capture clauses are necessary
-        int var = 1;
+        int var { 1 };
         assert([var] { return var; }() == var);
         // captured variables are copies, not references!
         // they are also const by default. allow mutation
