@@ -169,8 +169,9 @@ namespace functions {
         int var { 1 };
         assert([var] { return var; }() == var);
         // captured variables are copies, not references!
-        // they are also const by default. allow mutation
-        // of the lambdas copy of the captured variable:
+        // they are also const by default. use "mutable" to
+        // allow mutation of the lambdas copy of the captured
+        // variable. bad practice, can cause some weird problems
         [var] mutable { ++var; }(); // => var == 2
         assert(var == 1); // unchanged
         // capturing by reference is also possible
@@ -182,5 +183,9 @@ namespace functions {
         // by reference
         [&] { ++var; }();
         assert(var == 3);
+        // variable definitions are possible in capture clauses
+        // useful because they will only be evaluated once
+        // on lambda definition, not on every call
+        assert([x{ 10 }] { return x; }() == 10);
     }
 }
