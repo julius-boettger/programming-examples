@@ -1,8 +1,0 @@
-# file with main() method
-name: main
-
-environment:
-    sdk: ^3.0.5
-
-dependencies:
-    lints: "2.0.0"
