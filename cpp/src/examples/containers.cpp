@@ -42,5 +42,6 @@ namespace containers {
         assert(sized_vector.size() == 10);
         // can be const, but not constexpr
         const std::vector const_vector { true };
+        // can also be returned safely as it implements move semantics!
     }
 }

@@ -19,6 +19,7 @@ namespace strings {
         // (default is char*)
         using namespace std::string_literals;
         auto std_string { "string literal"s };
+        // can also be returned safely as it implements move semantics!
 
         //// std::string_view
         // basically a better const reference to any kind of string
