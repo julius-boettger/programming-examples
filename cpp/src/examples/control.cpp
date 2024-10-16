@@ -1,7 +1,7 @@
 namespace control {
     void run_examples() {
         //// range-based for loop
-        int array[] {1, 2, 3};
+        int array[] { 1, 2, 3 };
         for (int i : array) {
             // do something
         }
@@ -14,12 +14,11 @@ namespace control {
         }
 
         //// intentional switch fallthrough
-        switch (0)
-        {
+        switch (0) {
         case 0:
             // attribute to indicate intentional fallthrough
             // not necessary, but good practice
-            [[fallthrough]]; // <-- also mind the ";" ("null statement")
+            [[fallthrough]]; // (the semicolon is necessary)
         default:
             break;
         }

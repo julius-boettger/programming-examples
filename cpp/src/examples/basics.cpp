@@ -33,7 +33,7 @@ namespace basics {
         char16_t char16;
         char32_t char32;
         // better integer types, similar to C
-        // 8 bit variants are usually treated chars (e.g. when printing)
+        // 8 bit variants are usually treated as chars (e.g. when printing)
         std::uint8_t uint8;
         std::uint_fast8_t fast_uint8;
         std::uint_least8_t least_uint8;
@@ -57,16 +57,19 @@ namespace basics {
         Predicate test_if_equal { nullptr };
 
         // type inference, useful for when type doesn't really matter
-        auto dont_care_about_type = 3.23L;
+        auto dont_care_about_type { 3.23L };
         // usually just infers the basic type, so
         // extra modifiers should be applied explicitly
-        constexpr auto& ref_to_constant = constant;
+        constexpr auto& ref_to_constant { constant };
 
         //// explicit casting
-        // c-style: available for compatability, bad practice.
+        // c-style: available for compatability, but bad practice,
+        // allows unsafe conversions and only has minimal type safety
         int c_style_casted1 { (int) 5.432f };
-        int c_style_casted2 {  int(5.432f) }; // also possible!
-        // static_cast: best practice, but will
+        void (0); // casting to void is possible to explicitly discard something
+        // functional-style: very similar to c-style with new syntax
+        int c_style_casted2 {  int(5.432f) };
+        // static_cast: best practice, safer, but will
         // produce UB if value doesn't fit in new type
         int statically_casted { static_cast<int>(5.432f) };
         // const casts / reinterpret casts: bad practice,
@@ -84,7 +87,7 @@ namespace basics {
 
         //// (raw) pointers
         // exist, but are to be avoided
-        bool* bool_pointer = &boolean;
+        bool* bool_pointer { &boolean };
         // C++ nullptr == C null
         void* null { nullptr };
 
@@ -113,9 +116,9 @@ namespace basics {
         // - must be initialized immediately
         // - can not be reseated later
         // - the "&" means "lvalue reference" here, not "address of"
-        int non_const_int = 1;
+        int non_const_int { 1 };
         int& non_const_ref { non_const_int };
-        const int const_int = 2;
+        const int const_int { 2 };
         const int& const_ref { const_int };
         // const reference to non-const variable
         const int& const_ref_to_non_const { non_const_int };

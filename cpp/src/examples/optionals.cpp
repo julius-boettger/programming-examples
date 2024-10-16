@@ -23,7 +23,7 @@ namespace optionals {
         //// acquiring the value
         // .value_or(_): uses provided fallback if no value
         assert(no_value.value_or(7) == 7);
-        // .value(): throws error exception if no value
+        // .value(): throws exception if no value
         assert(value.value() == 0);
         // dereference: UB if no value
         assert(*value == 0);

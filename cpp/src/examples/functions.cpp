@@ -18,7 +18,7 @@ void const_ref(const int& x) {}
 int& pass_through(int& x) { return x; }
 
 //// constexpr and consteval functions
-// constexpr" functions will be evaluated
+// constexpr functions will be evaluated
 // at compile time wherever possible
 constexpr int get_special_value() {
     return 5555 + 1 - 4000 * 2342;
@@ -60,6 +60,7 @@ auto get_triple(auto x) { return x * 3; }
 // function arguments are not allowed to be
 template </*constexpr*/ float N>
 float get_quadruple() {
+    // just to proof that it's constexpr
     if constexpr (N + 1.0f > N) {}
     return N * 4.0f;
 }
@@ -97,7 +98,7 @@ int ellipsis_sum(int count, ...) {
 namespace functions {
     void run_examples() {
         // pass by reference
-        int x = 5;
+        int x { 5 };
         double_in_place(x);
         assert(x == 10);
         const_ref(5); // rvalue also works!
@@ -146,6 +147,7 @@ namespace functions {
         // shortest possible lambda
         void (*lambda)() { [] {} };
         // call lambda inline immediately after definition
+        // (just for fun because it looks weird)
         [](){}();
         // using auto is the only way to get the lambdas type precisely
         // as the compiler generates a unique type for each lambda.

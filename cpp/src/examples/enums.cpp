@@ -20,7 +20,7 @@ namespace Direction {
     };
 }
 // or use this cool shorthand! "enum classes"
-// also has some other benefits, see use below
+// also have some other benefits, see more below
 enum class State {
     ready,
     running

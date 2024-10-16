@@ -146,8 +146,8 @@ public:
     // destructor: called before object is destroyed
     ~CopyMoveDestr() = default;
 
-    // 4 of these functions (everything except destructor) can also
-    // be explicitly default-generated, e.g. the copy constructor:
+    // all of these functions can also be explicitly
+    // default-generated, e.g. the copy constructor:
     //CopyMoveDestr(const CopyMoveDestr& o) = default;
     // or just forbid calling them in the first place
     //CopyMoveDestr(const CopyMoveDestr& o) = delete;
@@ -212,7 +212,7 @@ namespace classes {
         assert(delegated_person.get_age() == 1);
 
         //// converting constructors
-        // although function only accetps an argument of type
+        // although function only accepts an argument of type
         // Person, this works, because the given int is converted
         // to a Person using the Person(int age) constructor
         assert(get_age_of_person(5) == 5);
