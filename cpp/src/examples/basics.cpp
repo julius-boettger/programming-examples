@@ -38,9 +38,9 @@ namespace basics {
         std::uint_fast8_t fast_uint8;
         std::uint_least8_t least_uint8;
         // commonly used unsigned type, e.g. for container sizes
-        std::size_t  unsigned_size { 0  };
+        std::size_t  unsigned_size { 0uz }; // with optional literal suffix!
         // the signed counterpart (ignore the weird name)
-        std::ptrdiff_t signed_size { 0z }; // even has its own literal suffix!
+        std::ptrdiff_t signed_size { 0z  }; // with optional literal suffix!
 
         // reliable built-in binary notation
         // also: ' as digit separator!
