@@ -42,6 +42,23 @@ namespace containers {
         assert(sized_vector.size() == 10);
         // can be const, but not constexpr
         const std::vector const_vector { true };
+        // can be resized manually
+        vector.resize(10); // grow, fill with zeros
+        assert(vector.size() == 10);
+        vector.resize(1); // shrink, discard elements
+        assert(vector.size() == 1);
+        vector.shrink_to_fit(); // ask runtime to free unused memory
+        // allocate memory for more elements without initializing it
+        vector.reserve(3);
+        // also has stack capabilities
+        vector.push_back(5);
+        assert(vector.size() == 2);
+        // prefer emplace_back over push_back when pushing temporary objects
+        // for efficiency. this can even access explicit constructors!
+        vector.emplace_back(10);
+        // bool vectors have a special implementation that
+        // you likely want to avoid becaus it's big and slow
+        std::vector<bool> bool_vector { true, false };
         // can also be returned safely as it implements move semantics!
     }
 }
