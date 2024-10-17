@@ -13,9 +13,9 @@ namespace containers {
         //// c-style array
         // exists for compatability, but should be avoided
         int c_style_array[] { 1, 2, 3 };
-        // get size of any kind of array, including c-style!
+        // get (unsigned) size of any kind of array, including c-style!
         assert(std::size(c_style_array) == 3);
-        // get signed size (useful in signed contexts) 
+        // get signed size (very useful!) 
         assert(std::ssize(c_style_array) == 3);
 
         //// std::array
