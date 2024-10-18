@@ -2,6 +2,8 @@
 #include <cstdint>
 // for assert()
 #include <cassert>
+// for std::reference_wrapper/std::ref
+#include <functional>
 
 // better constants with constant expressions:
 // have to be evaluable at compile time!
@@ -135,6 +137,13 @@ namespace basics {
         // use another "const" for constants!
         const static int const_static_int { 5 };
         constexpr const int& const_static_int_ref { const_static_int };
+        // references usually aren't objects, which e.g. means you 
+        // can't put them in an array. std::reference_wrapper
+        // provides a reference as an object to work around that.
+        std::reference_wrapper<int> ref_wrapper { non_const_int };
+        // shorthand functions
+        auto std_ref  { std:: ref(non_const_int) };
+        auto std_cref { std::cref(non_const_int) }; // const ref
 
         //// rvalue references
         // rvalue references are references initialized with
