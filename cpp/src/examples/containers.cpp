@@ -11,7 +11,8 @@ namespace containers {
 
         ////// arrays
         //// c-style array
-        // exists for compatability, but should be avoided
+        // exists for compatability, but should mostly be avoided.
+        // a valid use case is to store constexpr global data.
         int c_style_array[] { 1, 2, 3 };
         // get (unsigned) size of any kind of array, including c-style!
         assert(std::size(c_style_array) == 3);
@@ -22,15 +23,20 @@ namespace containers {
         // c-style array, but better!
         // fixed size  vvv
         std::array<int, 3> std_array { 1, 2, 3 };
-        assert(std_array.size() == 3);
         // access returns a reference
         assert(std_array[0] == 1);
-        // access with bounds checking: throws catchable
-        // exception if out of bounds. slower but safer,
-        // yet rarely used, just check the index yourself.
+        // access with runtime bounds checking: throws catchable
+        // exception if out of bounds. slower but safer, yet
+        // rarely used. just check the index yourself.
         assert(std_array.at(0) == 1);
+        // access with compile time bounds checking for constexpr index
+        assert(std::get<0>(std_array) == 1);
         // can be constexpr (or const)
         constexpr std::array<int, 1> const_array { 0 };
+        // size is always constexpr!
+        constexpr auto std_array_size { std_array.size() };
+        // type and length can be deducted from initializers
+        std::array auto_array { 1, 2, 3 };
 
         //// std::vector
         // dynamic array (variable size!)
