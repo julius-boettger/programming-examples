@@ -30,6 +30,7 @@ int main() {
     containers::run_examples();
     control::run_examples();
     enums::run_examples();
+    exceptions::run_examples();
     functions::run_examples();
     namespaces::run_examples();
     op_overloading::run_examples();

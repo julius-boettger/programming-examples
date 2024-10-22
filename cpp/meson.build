@@ -18,6 +18,7 @@ executable(
         'src/examples/containers.cpp',
         'src/examples/control.cpp',
         'src/examples/enums.cpp',
+        'src/examples/exceptions.cpp',
         'src/examples/functions.cpp',
         'src/examples/namespaces.cpp',
         'src/examples/op_overloading.cpp',

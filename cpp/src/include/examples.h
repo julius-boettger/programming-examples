@@ -18,6 +18,7 @@ namespace classes        { void run_examples(); }
 namespace containers     { void run_examples(); }
 namespace control        { void run_examples(); }
 namespace enums          { void run_examples(); }
+namespace exceptions     { void run_examples(); }
 namespace functions      { void run_examples(); }
 namespace namespaces     { void run_examples(); }
 namespace op_overloading { void run_examples(); }

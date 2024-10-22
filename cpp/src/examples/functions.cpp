@@ -17,6 +17,10 @@ void const_ref(const int& x) {}
 // lives beyond scope of function!
 int& pass_through(int& x) { return x; }
 
+//// noexcept
+// promise not to throw exceptions
+void nothing_bad() noexcept {}
+
 //// constexpr and consteval functions
 // constexpr functions will be evaluated
 // at compile time wherever possible
