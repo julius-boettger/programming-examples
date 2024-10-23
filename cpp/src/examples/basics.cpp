@@ -94,7 +94,7 @@ namespace basics {
         //// (raw) pointers
         // exist, but are to be avoided
         bool* bool_pointer { &boolean };
-        // C++ nullptr == C null
+        // C++ nullptr == C NULL
         void* null { nullptr };
 
         //// dynamic memory allocation
