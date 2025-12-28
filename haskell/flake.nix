@@ -13,8 +13,11 @@
   {
     devShells = eachSystem (system: pkgs: {
       default = pkgs.mkShell {
-        packages = with pkgs; [
-            (ghc.withPackages (pkgs: [ pkgs.cabal-install ]))
+        packages = [
+            (pkgs.ghc.withPackages (pkgs: with pkgs; [
+              cabal-install # build system
+              haskell-language-server # for vscode extension
+            ]))
         ];
       };
     });
