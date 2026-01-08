@@ -12,8 +12,20 @@ _ = last myList -- last element
 _ = tail myList -- all elements except first
 _ = init myList -- all elements except last
 
-_ = [1, 2] ++ [3, 4] -- concatenate lists
+concatList = [1, 2] ++ [3, 4] -- concatenate lists
 _ = 1:[2, 3] -- add something to the start using the "cons" operator
 
--- strings are lists!
+---- ranges: cool shorthand for constructing lists
+rangeList = [1..5] -- both limits are included!
+rangeStepList = [1,4..20] -- complete with the difference of the first two
+_ = ['a'..'z'] -- works for chars
+
+---- list comprehensions
+comprehendList = [x * 2 | x <- [1..10]] -- double all elements of a list
+-- but only for x's under a certain conditions
+comprehendCondList = [x * 2 | x <- [1..10], x > 5, x < 10]
+-- works with multiple variables (gives all combinations / cross product)
+combinationsList = [x * y | x <- [1..3], y <- [1..3]]
+
+-- strings are lists (of chars)! this all works for them!
 myString = "hello" ++ " " ++ "world"
