@@ -4,6 +4,7 @@ version:            0.0.0.0
 
 executable programming-examples
     main-is:          Main.hs
+    other-modules:    Lists
     build-depends:    base ^>=4.19.2.0
     hs-source-dirs:   app
     default-language: GHC2021

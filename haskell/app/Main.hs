@@ -7,7 +7,8 @@
 -- disable warning for not knowing the HLINT pragma
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
 
--- uhh
+-- define the Main module, exporting the main function,
+-- which consists of the things below ("where ...")
 module Main (main) where
 
 -- the main function of type IO to allow IO
