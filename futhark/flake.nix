@@ -13,8 +13,10 @@
   {
     devShells = eachSystem (system: pkgs: {
       default = pkgs.mkShell {
-        packages = [
-          pkgs.futhark
+        packages = with pkgs; [
+          futhark
+          ispc # for ispc target
+          opencl-headers ocl-icd # for opencl target
         ];
       };
     });
