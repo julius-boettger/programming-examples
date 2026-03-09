@@ -6,25 +6,35 @@
 
   outputs = { self, nixpkgs, systems, ... }:
   let
+    # to only use config for available hardware
+    # this only works with `--impure`! fails silently otherwise
+    enableHip = builtins.pathExists /dev/kfd; # AMD GPU
+    enableCuda = builtins.pathExists /dev/nvidia0; # NVIDIA GPU
+
     eachSystem = fn: nixpkgs.lib.genAttrs (import systems) (system: fn system (import nixpkgs {
       inherit system;
-      config.allowUnfree = true; # for cuda target
+      config.allowUnfree = enableCuda; # for cuda target
     }));
   in
   {
     devShells = eachSystem (system: pkgs: {
-      default = pkgs.mkShell {
-        packages = with pkgs; [
-          futhark
-          ispc # for ispc target
-          opencl-headers ocl-icd # for opencl target
-          cudatoolkit # for cuda target
-        ];
+      default = with pkgs; mkShell {
+        packages =
+          [
+            futhark
+            ispc # for ISPC target
+            opencl-headers ocl-icd # for OpenCL target
+          ]
+          # for CUDA target
+          ++ lib.optional enableCuda cudatoolkit
+          # for HIP (AMD's CUDA) target
+          ++ lib.optional enableHip rocmPackages.clr
+        ;
 
-        # more cuda stuff
-        shellHook = ''
-          export CUDA_PATH=${pkgs.cudatoolkit}
-          export LIBRARY_PATH=${pkgs.cudatoolkit}/lib/stubs:$LIBRARY_PATH
+        # more CUDA config
+        shellHook = lib.optionalString enableCuda ''
+          export CUDA_PATH=${cudatoolkit}
+          export LIBRARY_PATH=${cudatoolkit}/lib/stubs:$LIBRARY_PATH
           export LD_LIBRARY_PATH=/run/opengl-driver/lib:$LD_LIBRARY_PATH
         '';
       };
