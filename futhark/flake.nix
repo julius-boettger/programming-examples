@@ -1,6 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # for rocmPackages.clr version 6.4.3 with llvm 19
+    # to not break OpenCL target if rocmPackages.clr is installed
+    nixpkgs.url = "github:nixos/nixpkgs?rev=f4606b01b39e09065df37905a2133905246db9ed";
     systems.url = "github:nix-systems/default"; # can run on all systems
   };
 
