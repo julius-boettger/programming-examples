@@ -61,5 +61,15 @@ def pack_rgb ((r, g, b): (u8, u8, u8)): u32 =
     let b = (u32.u8 b)
     in r + g + b
 
+-- type abbreviation
+type complex = (f64, f64)
+
+-- using a second-order array combinator (SOAC) (takes a functional argument)
+def mapped_1 = map (\x -> x + 2) range_1
+-- this also works using "operator sections"
+def mapped_2 = map (2+) range_1
+-- another fundamental SOAC
+def sum = reduce (+) 0 range_1
+
 -- the default entry point (overridable with cli arguments)
 def main = array
