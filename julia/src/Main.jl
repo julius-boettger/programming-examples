@@ -5,6 +5,7 @@
 # but good practice
 function main()
     include("Basics.jl")
+    include("Control.jl")
     include("Functions.jl")
 end
 
