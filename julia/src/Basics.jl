@@ -1,3 +1,5 @@
+println("hello world")
+
 # insert unicode chars lean-like using e.g. \pi[ENTER]
 π = 3
 
@@ -46,5 +48,5 @@ array = [1, 2, 3]
 @assert array[1] == 1
 # dot operations (pointwise)
 @assert array .* 2 == [2, 4, 6]
-# range indexing
+# range indexing (includes last element!)
 @assert "hello"[2:end] == "ello"
