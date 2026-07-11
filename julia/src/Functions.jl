@@ -1,15 +1,65 @@
-# simple function
-function sum(a, b)
-    a + b
+# simple function (types are optional)
+function sum(a::Integer, b::Integer)::Integer
+    # return last expression by default
+    a + b # could also use `return`
 end
 @assert sum(1, 2) == 3
 
 # "assignment form"
 shortSum(a, b) = a + b
+@assert shortSum(1, 2) == 3
 
-# convention: function name ends on "!"
-#             as it modifies an argument
-zeroFirst!(array) = array[1] = 0
+# anonymous functions
+@assert ((a, b) -> a + b)(1, 2) == 3
+
+function printHello()
+    println("hello")
+    # convention for functions with no return value
+    # could also use just `return` or just `nothing`
+    return nothing
+end
+
+# reassigning arguments does not modify the originals
+function modTest(num, array)
+    num += 1
+    num = 2
+    array = [0]
+end
+num = 3
 array = [1, 2, 3]
+modTest(num, array)
+@assert num == 3
+@assert array == [1, 2, 3]
+
+# convention: "mutating" function's names ends on "!"
+zeroFirst!(array) = array[1] = 0
 zeroFirst!(array)
 @assert array[1] == 0
+
+# optional argument (with defaults)
+optional(num=1) = num
+@assert optional() == 1
+@assert optional(2) == 2
+
+# operators are also functions
+@assert 1 + 2 == +(1, 2)
+# function composition with \circ
+# careful: this is right-to-left (first add, then square)
+@assert (sqrt ∘ +)(3, 6) == 3
+
+# function piping/chaining
+@assert (9 |> sqrt) == 3
+# pipe with broadcasting (pointwise dot syntax) 
+@assert ([9, 64, 100] .|> sqrt) == [3, 8, 10]
+
+# map with anonymous function in a few different ways
+# standard
+@assert map(x -> x*2, 1:3) == [2, 4, 6]
+# a block with begin+end for multi-line functions
+@assert map(x -> begin x*2 end, 1:3) == [2, 4, 6]
+# different syntax for multi-line functions
+@assert map(1:3) do x x*2 end == [2, 4, 6]
+# pointwise application
+@assert (x -> x*2).(1:3) == [2, 4, 6]
+# with pipes
+@assert 1:3 |> (x -> x*2) == [2, 4, 6]

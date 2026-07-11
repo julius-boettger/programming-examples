@@ -44,9 +44,21 @@ rational = 6//9 # auto reduces to 2//3
 
 ### arrays
 array = [1, 2, 3]
+# range notation
+@assert 1:3 == [1, 2, 3]
 # indexing starts at 1
 @assert array[1] == 1
 # dot operations (pointwise)
 @assert array .* 2 == [2, 4, 6]
 # range indexing (includes last element!)
 @assert "hello"[2:end] == "ello"
+
+# a tuple
+tuple = (1, 2, 3)
+@assert tuple[1] == 1
+
+# destructuring arrays
+a, b..., c = 1:5
+@assert a == 1
+@assert b == [2, 3, 4]
+@assert c == 5
