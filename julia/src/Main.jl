@@ -7,6 +7,7 @@ function main()
     include("Basics.jl")
     include("Control.jl")
     include("Functions.jl")
+    include("Structs.jl")
 end
 
 # like `if __name == "__main__"` in python:

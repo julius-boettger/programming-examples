@@ -70,6 +70,14 @@ array = [1, 2, 3]
 # range indexing (includes last element!)
 @assert "hello"[2:end] == "ello"
 
+array2 = [1, 2, 3] # same value
+# value equality ==: true, same value
+@assert array == array2
+# object equality ===: false, different object in memory
+@assert array !== array2
+# true (same object)
+@assert array === array
+
 # a tuple
 tuple = (1, 2, 3)
 @assert tuple[1] == 1
