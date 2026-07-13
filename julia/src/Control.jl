@@ -1,4 +1,23 @@
-### compound expressions (with temporary variables)
+# explicitly override scope
+global g = 1
+local l = 1
+
+# constants (use for globals if possible!)
+const myConst = 0
+
+# let blocks (new scope)
+x = let a = 3, b = 4
+    a + b
+end
+# equivalent
+x = let
+    a = 3
+    b = 4
+    a + b
+end
+@assert x == 7
+
+# compound expressions (leaks into outer scope!)
 # with begin blocks
 x = begin
     a = 3
@@ -6,12 +25,13 @@ x = begin
     a + b
 end
 @assert x == 7
+@assert a == 3
 # with ; chains
-x = (a = 3; b = 4; a + b)
+x = (c = 3; d = 4; c + d)
 @assert x == 7
+@assert c == 3
 
-# if blocks do not introduce a new scope
-# => variables defined inside are visible outside
+# variables leak into outer scope!
 if true
     branch = 1
 elseif false
@@ -25,7 +45,7 @@ end
 @assert (true ? 1 : 2) == 1
 
 # for loop 
-for i in 1:9
+for i = 1:9 # could also replace `=` with `in` or `∈`
     # ...
 end
 
@@ -37,7 +57,8 @@ end
 
 # try-catch
 try
-    sqrt(-1)
+    throw(InvalidStateException)
+    error("something went very wrong")
 catch #error
     # ...
 else
