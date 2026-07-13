@@ -1,9 +1,16 @@
-# simple function (types are optional)
-function sum(a::Integer, b::Integer)::Integer
+# simple function
+function sum(a, b)
     # return last expression by default
     a + b # could also use `return`
 end
 @assert sum(1, 2) == 3
+
+# provide a concrete implementation
+# for the case that arguments are float32
+function sum(a::Float32, b::Float32)::Float32
+    a + b
+end
+@assert sum(1.0, 2.0) == 3.0
 
 # "assignment form"
 shortSum(a, b) = a + b

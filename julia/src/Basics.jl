@@ -1,9 +1,26 @@
 println("hello world")
 
 # insert unicode chars lean-like using e.g. \pi[ENTER]
-π = 3
+# (type is optional)
+π::Integer = 3
+
+# primitive types
+char::Char = '0'
+bool::Bool = true
+int8::Int8 = 0 # up to 128
+int::Int = 0 # size depends on system arch (probably  64)
+uint8::UInt8 = 0 # up to 128
+uint::UInt = 0 # size depends on system arch (probably  64)
+float16::Float16 = 0.0 # up to 64
+
+# abstract types (different sizes allowed)
+any::Any = 1
+signed::Signed = 1
+integer::Integer = 1
+float::AbstractFloat = 1.0
 
 # dynamic typing
+# only allowed for variables with no explicit type
 x = false
 @assert typeof(x) == Bool
 x = "hello"
