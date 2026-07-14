@@ -13,11 +13,24 @@ uint8::UInt8 = 0 # up to 128
 uint::UInt = 0 # size depends on system arch (probably  64)
 float16::Float16 = 0.0 # up to 64
 
+# other interesting types
+string::String = "string"
+# types which just hold a primitive object:
+# for missing values
+missing_::Missing = missing
+# like void/null
+nothing_::Nothing = nothing
+
 # abstract types (different sizes allowed)
 any::Any = 1
 signed::Signed = 1
 integer::Integer = 1
 float::AbstractFloat = 1.0
+
+# create own abstract types as unions of other types
+Num = Union{Integer, AbstractFloat}
+# can be an int or nothing (nullable/option/maybe)
+MaybeInt = Union{Int, Nothing}
 
 # dynamic typing
 # only allowed for variables with no explicit type
@@ -81,6 +94,9 @@ array2 = [1, 2, 3] # same value
 # a tuple
 tuple = (1, 2, 3)
 @assert tuple[1] == 1
+# a named tuple
+namedTuple = (a=1, b=".")
+@assert namedTuple.a == 1
 
 # destructuring arrays
 a, b..., c = 1:5

@@ -6,7 +6,7 @@ end
 @assert sum(1, 2) == 3
 
 # provide a concrete implementation
-# for the case that arguments are float32
+# for specific argument types (a "method")
 function sum(a::Float32, b::Float32)::Float32
     a + b
 end
