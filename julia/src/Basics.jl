@@ -1,5 +1,15 @@
 println("hello world")
 
+#= (this is a multi-line comment)
+general tips for writing good julia code:
+- avoid top-level/global statements/variables, put everything in a function
+    - not just for style, but also for performance
+    - because julia's compiler can make more assumptions about
+      types of variables in functions than for global variables
+    - but global constants are fine
+- use permissive/abstract types in function signatures
+=#
+
 # insert unicode chars lean-like using e.g. \pi[ENTER]
 # (type is optional)
 π::Integer = 3
@@ -28,9 +38,13 @@ integer::Integer = 1
 float::AbstractFloat = 1.0
 
 # create own abstract types as unions of other types
+# (often a bad practice though)
 Num = Union{Integer, AbstractFloat}
 # can be an int or nothing (nullable/option/maybe)
 MaybeInt = Union{Int, Nothing}
+
+# convert between types
+@assert typeof(convert(UInt8, 1)) == UInt8
 
 # dynamic typing
 # only allowed for variables with no explicit type

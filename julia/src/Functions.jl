@@ -1,4 +1,5 @@
 # simple function
+"small doc comment (uses _markdown_)"
 function sum(a, b)
     # return last expression by default
     a + b # could also use `return`
@@ -6,7 +7,8 @@ end
 @assert sum(1, 2) == 3
 
 # provide a concrete implementation
-# for specific argument types (a "method")
+# for specific argument types
+# (a "method" for "multiple dispatch")
 function sum(a::Float32, b::Float32)::Float32
     a + b
 end
@@ -19,6 +21,9 @@ shortSum(a, b) = a + b
 # anonymous functions
 @assert ((a, b) -> a + b)(1, 2) == 3
 
+"""
+multi-line doc comment
+"""
 function printHello()
     println("hello")
     # convention for functions with no return value
@@ -42,6 +47,12 @@ modTest(num, array)
 zeroFirst!(array) = array[1] = 0
 zeroFirst!(array)
 @assert array[1] == 0
+
+# unnamed arguments: useful with multiple dispatch
+isInteger(::Any) = false
+isInteger(::Integer) = true
+@assert !isInteger(".")
+@assert isInteger(0)
 
 # optional argument (with defaults)
 optional(num=1) = num
