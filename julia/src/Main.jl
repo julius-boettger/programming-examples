@@ -1,17 +1,12 @@
 # run this with `julia src/Main.jl`
 
-# a main function is not strictly necessary,
-# its body could also just be at top-level,
-# but good practice
-function main()
-    include("Basics.jl")
-    include("Control.jl")
-    include("Functions.jl")
-    include("Structs.jl")
-end
-
-# like `if __name == "__main__"` in python:
-# only run this if the file is run directly (not e.g. included)
-if abspath(PROGRAM_FILE) == @__FILE__
-    main()
+# a main function is also not strictly necessary, but good practice
+function (@main)(args)
+    # in a real project, prefer to import code from other
+    # files using modules, not like this (see Modules.jl)
+    include("src/Basics.jl")
+    include("src/Control.jl")
+    include("src/Functions.jl")
+    include("src/Modules.jl")
+    include("src/Structs.jl")
 end
