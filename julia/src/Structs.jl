@@ -36,3 +36,16 @@ struct Parametric{T}
 end
 parametric = Parametric{Int}(1, 1)
 @assert typeof(parametric.x) == Int
+
+# abstract types as supertypes for structs
+abstract type Animal end
+struct Dog <: Animal end
+struct Cat <: Animal end
+
+# a simple enum
+@enum Fruit begin
+    Apple
+    Banana
+end
+fruit = Apple
+@assert typeof(fruit) == Fruit
