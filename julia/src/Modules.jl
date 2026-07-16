@@ -2,21 +2,21 @@
 module MyMod
 
 # what to import with `using` (see below)
-export myConst
+export myconst
 
-const myConst = 0
-const notExported = 1
+const myconst = 0
+const notexported = 1
 
 end
 
 # import the module (acess with its name)
 import .MyMod
-@assert MyMod.myConst == 0
+@assert MyMod.myconst == 0
 
 # import everything in the module's export list
 using .MyMod
-@assert myConst == 0
+@assert myconst == 0
 
 # import just some specific names from the module
-using .MyMod: notExported
-@assert notExported == 1
+using .MyMod: notexported
+@assert notexported == 1

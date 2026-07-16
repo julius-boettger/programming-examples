@@ -15,8 +15,8 @@ end
 @assert sum(1.0, 2.0) == 3.0
 
 # "assignment form"
-shortSum(a, b) = a + b
-@assert shortSum(1, 2) == 3
+shortsum(a, b) = a + b
+@assert shortsum(1, 2) == 3
 
 # anonymous functions
 @assert ((a, b) -> a + b)(1, 2) == 3
@@ -24,7 +24,7 @@ shortSum(a, b) = a + b
 """
 multi-line doc comment
 """
-function printHello()
+function printhello()
     println("hello")
     # convention for functions with no return value
     # could also use just `return` or just `nothing`
@@ -32,27 +32,27 @@ function printHello()
 end
 
 # reassigning arguments does not modify the originals
-function modTest(num, array)
+function modtest(num, array)
     num += 1
     num = 2
     array = [0]
 end
 num = 3
 array = [1, 2, 3]
-modTest(num, array)
+modtest(num, array)
 @assert num == 3
 @assert array == [1, 2, 3]
 
 # convention: "mutating" function's names ends on "!"
-zeroFirst!(array) = array[1] = 0
-zeroFirst!(array)
+zerofirst!(array) = array[1] = 0
+zerofirst!(array)
 @assert array[1] == 0
 
 # unnamed arguments: useful with multiple dispatch
-isInteger(::Any) = false
-isInteger(::Integer) = true
-@assert !isInteger(".")
-@assert isInteger(0)
+isinteger(::Any) = false
+isinteger(::Integer) = true
+@assert !isinteger(".")
+@assert isinteger(0)
 
 # optional argument (with defaults)
 optional(num=1) = num

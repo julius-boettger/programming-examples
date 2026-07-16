@@ -8,6 +8,8 @@ general tips for writing good julia code:
       types of variables in functions than for global variables
     - but global constants are fine
 - use permissive/abstract types in function signatures
+- variable and function names are usually all lower case and without underscores,
+  e.g. isinteger, but underscores are also tolerated (e.g. is_integer)
 =#
 
 # insert unicode chars lean-like using e.g. \pi[ENTER]
@@ -109,8 +111,8 @@ array2 = [1, 2, 3] # same value
 tuple = (1, 2, 3)
 @assert tuple[1] == 1
 # a named tuple
-namedTuple = (a=1, b=".")
-@assert namedTuple.a == 1
+namedtuple = (a=1, b=".")
+@assert namedtuple.a == 1
 
 # destructuring arrays
 a, b..., c = 1:5

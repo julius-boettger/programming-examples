@@ -3,7 +3,7 @@ global g = 1
 local l = 1
 
 # constants (use for globals if possible!)
-const myConst = 0
+const myconst = 0
 
 # let blocks (new scope)
 x = let a = 3, b = 4

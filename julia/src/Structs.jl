@@ -16,18 +16,18 @@ object = Struct(0, true)
 
 # add constructor without arguments
 Struct() = Struct(0, false)
-defaultObj = Struct()
-@assert defaultObj.field2 == false
+defaultobj = Struct()
+@assert defaultobj.field2 == false
 
 # a mutable struct (objects are mutable)
 mutable struct mutableStruct
     field::Int
     # can still annotate fields to be const (immutable)
-    const constField
+    const constfield
 end
-mutableObj = mutableStruct(0, 0)
-mutableObj.field = 1
-@assert mutableObj.field == 1
+mutableobj = mutableStruct(0, 0)
+mutableobj.field = 1
+@assert mutableobj.field == 1
 
 # with a parametric type
 struct Parametric{T}
